@@ -1,0 +1,66 @@
+{
+  "name": "ioi",
+  "version": "0.0.2",
+  "description": "A Web Application for IIPS Online Inspection",
+  "productName": "IIPS Online Inspection",
+  "author": "Patrick Alvin Alcala <45809622+PatCode9@users.noreply.github.com>",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev -m spa -p 1234",
+    "build": "quasar build -m pwa && mv dist/pwa public",
+    "desktop": "quasar dev -m electron",
+    "bdesktop": "quasar build -m electron",
+    "debug": "quasar build --debug -m ssr",
+    "deploy": "now --prod",
+    "pwa": "quasar build -m pwa"
+  },
+  "dependencies": {
+    "@google/maps": "^1.0.1",
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
+    "@quasar/extras": "^1.8.2",
+    "@studiometa/vue-mapbox-gl": "^1.2.1",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "cryptr": "^4.0.2",
+    "gsap": "^3.0.5",
+    "hashr": "^1.0.2",
+    "https-proxy-agent": "^5.0.0",
+    "mapbox-gl": "^1.11.0",
+    "md5": "^2.2.1",
+    "pako": "^1.0.10",
+    "quasar": "^1.12.8",
+    "supports-webp": "^2.0.1",
+    "sweetalert2": "^9.15.2",
+    "zipson": "^0.2.11"
+  },
+  "devDependencies": {
+    "@quasar/app": "^2.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "workbox-webpack-plugin": "^5.0.0"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
