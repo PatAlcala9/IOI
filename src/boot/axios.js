@@ -10,18 +10,6 @@ export default async ({ Vue }) => {
   const nDay = (day < 10) ? '0' + day.toString() : day.toString()
   const key = Encrypt(nDay + '-' + nMonth + '-' + year)
 
-  // axios.defaults.headers.post['Content-Type'] = 'application/json'
-
-  // axios.defaults.transformRequest = [function (data, headers) {
-  // if (typeof data === 'string' && data.length > 1024) {
-  // headers['Content-Encoding'] = 'gzip'
-  // return pako.gzip(data)
-  // } else {
-  //  headers['Content-Encoding'] = undefined
-  //  return data
-  // }
-  // }]
-
   /* **Server */
   /* const instance = axios.create({
     baseURL: 'https://cors-anywhere.herokuapp.com/122.2.27.43/index3.php?url=http://192.168.78.54/IOI/api/',
@@ -31,24 +19,24 @@ export default async ({ Vue }) => {
   }) */
 
   /* **New Server */
-  const instance = axios.create({
+  /* const instance = axios.create({
     baseURL: 'https://cors-anywhere.herokuapp.com/eops.davaocity.gov.ph/ioi/',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',
       'X-Data-Lock': key
     }
-  })
+  }) */
 
   /* **Local */
-  /* const instance = axios.create({
+  const instance = axios.create({
     baseurl: 'http://localhost:27072',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',
       'X-Data-Lock': key
     }
-  }) */
+  })
 
   instance.defaults.headers.post['Content-Type'] = 'application/json'
 

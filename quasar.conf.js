@@ -97,7 +97,10 @@ module.exports = function (/* ctx */) {
         'SessionStorage',
         'LocalStorage',
         'Loading'
-      ]
+      ],
+      config: {
+        loading: {}
+      }
     },
 
     // animations: 'all', // --- includes all animations
