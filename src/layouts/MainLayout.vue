@@ -12,7 +12,7 @@ import { Encrypt } from '../assets/js/L3S'
 /* import { id } from 'vuex' */
 
 export default {
-  name: 'MyLayout',
+  name: 'MainLayout',
   data () {
     return {
       /* leftDrawerOpen: false,

@@ -75,7 +75,8 @@
 </template>
 
 <script>
-const Swal = require('sweetalert2')
+import Swal from 'sweetalert2'
+/* const Swal = require('sweetalert2') */
 const l3s = require('../assets/js/L3S')
 const json = require('zipson')
 import { Bounce, Elastic, gsap } from 'gsap/dist/gsap'
@@ -338,7 +339,7 @@ export default {
                                     }
                                     Swal.fire({
                                       title: 'WELCOME ' + ename,
-                                      type: 'success',
+                                      icon: 'success',
                                       confirmButtonText: 'Proceed',
                                       background: color
                                     })
@@ -357,7 +358,7 @@ export default {
                                   Swal.fire({
                                     title: 'Login Failed',
                                     text: 'No Connection on Server',
-                                    type: 'error',
+                                    icon: 'error',
                                     confirmButtonText: 'Retry',
                                     background: color
                                   })
@@ -374,7 +375,7 @@ export default {
                               Swal.fire({
                                 title: 'Login Failed',
                                 text: 'Account is already Online',
-                                type: 'error',
+                                icon: 'error',
                                 background: color
                               })
                             }
@@ -390,7 +391,7 @@ export default {
                         }
                         Swal.fire({
                           title: 'Invalid Login, Inspectors Only',
-                          type: 'error',
+                          icon: 'error',
                           confirmButtonText: 'Proceed',
                           background: color
                         })
@@ -406,7 +407,7 @@ export default {
                     color = 'white'
                   }
                   Swal.fire({
-                    type: 'error',
+                    icon: 'error',
                     title: 'Invalid Password',
                     background: color
                   })
@@ -424,7 +425,7 @@ export default {
                   color = 'white'
                 }
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'No Connection on Server',
                   background: color
                 })
@@ -441,7 +442,7 @@ export default {
               color = 'white'
             }
             Swal.fire({
-              type: 'error',
+              icon: 'error',
               title: 'Username does not exist',
               background: color
             })
@@ -451,7 +452,7 @@ export default {
         .catch(() => {
           this.$q.loading.hide()
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'No Connection on Server'
           })
           this.checkConnected()
@@ -489,7 +490,7 @@ export default {
             color = 'white'
           }
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'Invalid Username',
             text: 'Username does not exist',
             background: color
@@ -509,7 +510,7 @@ export default {
 
           if (isInspector === 0) {
             Swal.fire({
-              type: 'error',
+              icon: 'error',
               title: 'Invalid Login',
               text: 'Only Inspectors are allowed',
               background: color
@@ -603,7 +604,7 @@ export default {
 
           Swal.fire({
             title: 'WELCOME ' + fullname,
-            type: 'success',
+            icon: 'success',
             confirmButtonText: 'Proceed',
             background: color
           })
@@ -618,7 +619,7 @@ export default {
             color = 'white'
           }
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'Invalid Login',
             text: 'Wrong Password',
             background: color
@@ -641,7 +642,7 @@ export default {
             color = 'white'
           }
           Swal.fire({
-            type: 'warning',
+            icon: 'warning',
             title: 'Enhancement Complete',
             confirmButtonText: 'Retry Login',
             background: color
@@ -655,7 +656,7 @@ export default {
           }
 
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'Cannot Connect to Server',
             confirmButtonText: 'OK',
             background: color
@@ -683,7 +684,7 @@ export default {
           }
           Swal.fire({
             title: 'WELCOME ' + ename,
-            type: 'success',
+            icon: 'success',
             confirmButtonText: 'Proceed',
             background: color
           })
@@ -698,7 +699,7 @@ export default {
             color = 'white'
           }
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'Invalid Password',
             background: color
           })
@@ -713,7 +714,7 @@ export default {
           color = 'white'
         }
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'Username does not exist',
           background: color
         })
@@ -766,7 +767,7 @@ export default {
     //           color = 'white'
     //         }
     //         Swal.fire({
-    //           type: 'error',
+    //           icon: 'error',
     //           title: 'Username does not exist',
     //           background: color
     //         })
@@ -791,7 +792,7 @@ export default {
     //           color = 'white'
     //         }
     //         Swal.fire({
-    //           type: 'error',
+    //           icon: 'error',
     //           title: 'Invalid Password',
     //           background: color
     //         })
@@ -828,7 +829,7 @@ export default {
     //           Swal.fire({
     //             title: 'Login Failed',
     //             text: 'No Connection on Server',
-    //             type: 'error',
+    //             icon: 'error',
     //             confirmButtonText: 'Retry',
     //             background: color
     //           })
@@ -844,7 +845,7 @@ export default {
     //         }
     //         Swal.fire({
     //           title: 'Invalid Login, Inspectors Only',
-    //           type: 'error',
+    //           icon: 'error',
     //           confirmButtonText: 'Proceed',
     //           background: color
     //         })
@@ -923,7 +924,7 @@ export default {
     //         }
     //         Swal.fire({
     //           title: 'WELCOME ' + ename,
-    //           type: 'success',
+    //           icon: 'success',
     //           confirmButtonText: 'Proceed',
     //           background: color
     //         })
@@ -941,7 +942,7 @@ export default {
     //         color = 'white'
     //       }
     //       Swal.fire({
-    //         type: 'error',
+    //         icon: 'error',
     //         title: 'No Connection on Server',
     //         background: color
     //       })
@@ -959,7 +960,7 @@ export default {
     },
     forgotPassword () {
       Swal.fire({
-        type: 'info',
+        icon: 'info',
         title: 'Please Contact the IT Team'
       })
     }
@@ -995,7 +996,7 @@ export default {
       .catch((err) => {
         Swal.fire({
           text: err,
-          type: 'error',
+          icon: 'error',
           confirmButtonText: 'Retry'
         })
       })
