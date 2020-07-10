@@ -118,11 +118,11 @@ module.exports = function (/* ctx */) {
       workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: 'IIPS Online Inspection',
-        short_name: 'IIPS Online Inspection',
+        short_name: 'IOI',
         description: 'A Web Application for IIPS Online Inspection',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
+        background_color: '#507f95',
         theme_color: '#027be3',
         icons: [
           {

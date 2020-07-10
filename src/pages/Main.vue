@@ -2444,8 +2444,8 @@ export default {
       deleterowbfp: false,
       dateStart: '',
       signageallowadd: true,
-      selectedType: 'Please Select a Type',
-      savedType: null,
+      selectedicon: 'Please Select a Type',
+      savedicon: null,
       savedTypeBool: true,
       savedbldgLG: 0,
       savedbldgLGMsg: null,
@@ -2617,13 +2617,13 @@ export default {
                         this.$q.loading.hide()
                         if (err.message === 'Network Error') {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Unable to Search Building',
                             text: 'No Connection on Server'
                           })
                         } else {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Error',
                             text: err.message
                           })
@@ -2632,7 +2632,7 @@ export default {
                   } else {
                     this.$q.loading.hide()
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Building Application not ready for Inspection'
                     })
@@ -2644,13 +2644,13 @@ export default {
                   this.$q.loading.hide()
                   if (err.message === 'Network Error') {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Unable to Search Building',
                       text: 'No Connection on Server'
                     })
                   } else {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Error1',
                       text: err.message
                     })
@@ -2659,7 +2659,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Building Application Number does not exist'
               })
@@ -2670,13 +2670,13 @@ export default {
             this.$q.loading.hide()
             if (err.message === 'Network Error') {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Search Error',
                 text: 'No Connection on Server'
               })
             } else {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Building Application Number does not exist'
               })
@@ -2715,7 +2715,7 @@ export default {
                   } else {
                     this.$q.loading.hide()
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Occupancy Application not ready for Inspection'
                     })
@@ -2727,13 +2727,13 @@ export default {
                   this.$q.loading.hide()
                   if (err.message === 'Network Error') {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Unable to Search',
                       text: 'No Connection on Server'
                     })
                   } else {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Error',
                       text: err.message
                     })
@@ -2742,7 +2742,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Occupancy Application Number does not exist'
               })
               this.appno = ''
@@ -2753,13 +2753,13 @@ export default {
             this.$q.loading.hide()
             if (err.message === 'Network Error') {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Unable to Search',
                 text: 'No Connection on Server'
               })
             } else {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Occupancy Application Number does not exist'
               })
@@ -2804,13 +2804,13 @@ export default {
                         this.$q.loading.hide()
                         if (err.message === 'Network Error') {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Unable to Search',
                             text: 'No Connection on Server'
                           })
                         } else {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Invalid Search',
                             text: 'Electrical Application Number does not exist'
                           })
@@ -2821,7 +2821,7 @@ export default {
                   } else {
                     this.$q.loading.hide()
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Electrical Application not ready for Inspection'
                     })
@@ -2833,13 +2833,13 @@ export default {
                   this.$q.loading.hide()
                   if (err.message === 'Network Error') {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Unable to Search',
                       text: 'No Connection on Server'
                     })
                   } else {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Electrical Application Number does not exist'
                     })
@@ -2850,7 +2850,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Electrical Application Number does not exist'
               })
               this.appno = ''
@@ -2861,13 +2861,13 @@ export default {
             this.$q.loading.hide()
             if (err.message === 'Network Error') {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Unable to Search',
                 text: 'No Connection on Server'
               })
             } else {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Electrical Application Number does not exist'
               })
@@ -2908,13 +2908,13 @@ export default {
                         this.$q.loading.hide()
                         if (err.message === 'Network Error') {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Unable to Search',
                             text: 'No Connection on Server'
                           })
                         } else {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Invalid Search',
                             text: 'Signage Application Number does not exist'
                           })
@@ -2925,7 +2925,7 @@ export default {
                   } else {
                     this.$q.loading.hide()
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Signage Application not ready for Inspection'
                     })
@@ -2937,13 +2937,13 @@ export default {
                   this.$q.loading.hide()
                   if (err.message === 'Network Error') {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Unable to Search',
                       text: 'No Connection on Server'
                     })
                   } else {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Signage Application Number does not exist'
                     })
@@ -2954,7 +2954,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Signage Application Number does not exist'
               })
               this.appno = ''
@@ -2965,13 +2965,13 @@ export default {
             this.$q.loading.hide()
             if (err.message === 'Network Error') {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Unable to Search',
                 text: 'No Connection on Server'
               })
             } else {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Signage Application Number does not exist'
               })
@@ -3012,13 +3012,13 @@ export default {
                         this.$q.loading.hide()
                         if (err.message === 'Network Error') {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Unable to Search',
                             text: 'No Connection on Server'
                           })
                         } else {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Invalid Search',
                             text: 'Mechanical Application Number does not exist'
                           })
@@ -3029,7 +3029,7 @@ export default {
                   } else {
                     this.$q.loading.hide()
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Mechanical Application not ready for Inspection'
                     })
@@ -3041,13 +3041,13 @@ export default {
                   this.$q.loading.hide()
                   if (err.message === 'Network Error') {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Unable to Search',
                       text: 'No Connection on Server'
                     })
                   } else {
                     Swal.fire({
-                      type: 'error',
+                      icon: 'error',
                       title: 'Invalid Search',
                       text: 'Mechanical Application Number does not exist'
                     })
@@ -3058,7 +3058,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Mechanical Application Number does not exist'
               })
               this.appno = ''
@@ -3069,13 +3069,13 @@ export default {
             this.$q.loading.hide()
             if (err.message === 'Network Error') {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Unable to Search',
                 text: 'No Connection on Server'
               })
             } else {
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Invalid Search',
                 text: 'Mechanical Application Number does not exist'
               })
@@ -4044,7 +4044,7 @@ export default {
 
       //                                 if (jsonize.affectedRows > 0) {
       //                                   // Swal.fire({
-      //                                   //   type: 'success',
+      //                                   //   icon: 'success',
       //                                   //   title: 'Successfully Saved'
       //                                   // })
       //                                   this.saveMessage()
@@ -4064,13 +4064,13 @@ export default {
       //                                         this.$q.loading.hide()
       //                                         if (err.message === 'Network Error') {
       //                                           Swal.fire({
-      //                                             type: 'error',
+      //                                             icon: 'error',
       //                                             title: 'Saving Failed',
       //                                             text: 'No Connection on Server'
       //                                           })
       //                                         } else {
       //                                           Swal.fire({
-      //                                             type: 'error',
+      //                                             icon: 'error',
       //                                             title: 'Saving Failed',
       //                                             text: err.message
       //                                           })
@@ -4079,7 +4079,7 @@ export default {
       //                                   }
       //                                 } else {
       //                                   Swal.fire({
-      //                                     type: 'error',
+      //                                     icon: 'error',
       //                                     title: 'Saving Failed',
       //                                     text: jsonize.serverStatus
       //                                   })
@@ -4089,13 +4089,13 @@ export default {
       //                                 this.$q.loading.hide()
       //                                 if (err.message === 'Network Error') {
       //                                   Swal.fire({
-      //                                     type: 'error',
+      //                                     icon: 'error',
       //                                     title: 'Saving Failed',
       //                                     text: 'No Connection on Server'
       //                                   })
       //                                 } else {
       //                                   Swal.fire({
-      //                                     type: 'error',
+      //                                     icon: 'error',
       //                                     title: 'Saving Failed',
       //                                     text: err.message
       //                                   })
@@ -4107,13 +4107,13 @@ export default {
       //                           this.$q.loading.hide()
       //                           if (err.message === 'Network Error') {
       //                             Swal.fire({
-      //                               type: 'error',
+      //                               icon: 'error',
       //                               title: 'Saving Failed',
       //                               text: 'No Connection on Server'
       //                             })
       //                           } else {
       //                             Swal.fire({
-      //                               type: 'error',
+      //                               icon: 'error',
       //                               title: 'Saving Failed',
       //                               text: err.message
       //                             })
@@ -4125,13 +4125,13 @@ export default {
       //                     this.$q.loading.hide()
       //                     if (err.message === 'Network Error') {
       //                       Swal.fire({
-      //                         type: 'error',
+      //                         icon: 'error',
       //                         title: 'Saving Failed',
       //                         text: 'No Connection on Server'
       //                       })
       //                     } else {
       //                       Swal.fire({
-      //                         type: 'error',
+      //                         icon: 'error',
       //                         title: 'Saving Failed',
       //                         text: err.message
       //                       })
@@ -4142,13 +4142,13 @@ export default {
       //                 this.$q.loading.hide()
       //                 if (err.message === 'Network Error') {
       //                   Swal.fire({
-      //                     type: 'error',
+      //                     icon: 'error',
       //                     title: 'Saving Failed',
       //                     text: 'No Connection on Server'
       //                   })
       //                 } else {
       //                   Swal.fire({
-      //                     type: 'error',
+      //                     icon: 'error',
       //                     title: 'Saving Failed',
       //                     text: err.message
       //                   })
@@ -4160,13 +4160,13 @@ export default {
       //           this.$q.loading.hide()
       //           if (err.message === 'Network Error') {
       //             Swal.fire({
-      //               type: 'error',
+      //               icon: 'error',
       //               title: 'Saving Failed',
       //               text: 'No Connection on Server'
       //             })
       //           } else {
       //             Swal.fire({
-      //               type: 'error',
+      //               icon: 'error',
       //               title: 'Saving Failed',
       //               text: err.message
       //             })
@@ -4177,13 +4177,13 @@ export default {
       //       this.$q.loading.hide()
       //       if (err.message === 'Network Error') {
       //         Swal.fire({
-      //           type: 'error',
+      //           icon: 'error',
       //           title: 'Saving Failed',
       //           text: 'No Connection on Server'
       //         })
       //       } else {
       //         Swal.fire({
-      //           type: 'error',
+      //           icon: 'error',
       //           title: 'Saving Failed',
       //           text: err.message
       //         })
@@ -4214,7 +4214,7 @@ export default {
 
       if (this.isDataEmpty === true) {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'Cannot Save',
           text: 'No Data is Registered'
         })
@@ -4223,7 +4223,7 @@ export default {
     saveMessage (progressflow) {
       // if (this.okSaved === true) {
       Swal.fire({
-        type: 'success',
+        icon: 'success',
         title: 'SUCCESSFULLY SAVED ' + progressflow + ' FINDINGS'
       })
       // }
@@ -4324,13 +4324,13 @@ export default {
                                                           this.$q.loading.hide()
                                                           if (jsonize.affectedRows > 0) {
                                                             // Swal.fire({
-                                                            //   type: 'success',
+                                                            //   icon: 'success',
                                                             //   title: 'Successfully Saved'
                                                             // })
                                                             this.saveMessage('LINE AND GRADE')
                                                           } else {
                                                             Swal.fire({
-                                                              type: 'error',
+                                                              icon: 'error',
                                                               title: 'Saving Failed',
                                                               text: jsonize.serverStatus
                                                             })
@@ -4340,13 +4340,13 @@ export default {
                                                           this.$q.loading.hide()
                                                           if (err.message === 'Network Error') {
                                                             Swal.fire({
-                                                              type: 'error',
+                                                              icon: 'error',
                                                               title: 'Saving Failed',
                                                               text: 'No Connection on Server'
                                                             })
                                                           } else {
                                                             Swal.fire({
-                                                              type: 'error',
+                                                              icon: 'error',
                                                               title: 'Saving Failed',
                                                               text: err.message
                                                             })
@@ -4354,7 +4354,7 @@ export default {
                                                         })
                                                     } else {
                                                       Swal.fire({
-                                                        type: 'error',
+                                                        icon: 'error',
                                                         title: 'Saving Failed',
                                                         text: jsonize.serverStatus
                                                       })
@@ -4364,13 +4364,13 @@ export default {
                                                     this.$q.loading.hide()
                                                     if (err.message === 'Network Error') {
                                                       Swal.fire({
-                                                        type: 'error',
+                                                        icon: 'error',
                                                         title: 'Saving Failed',
                                                         text: 'No Connection on Server'
                                                       })
                                                     } else {
                                                       Swal.fire({
-                                                        type: 'error',
+                                                        icon: 'error',
                                                         title: 'Saving Failed',
                                                         text: err.message
                                                       })
@@ -4381,13 +4381,13 @@ export default {
                                                 this.$q.loading.hide()
                                                 if (err.message === 'Network Error') {
                                                   Swal.fire({
-                                                    type: 'error',
+                                                    icon: 'error',
                                                     title: 'Saving Failed',
                                                     text: 'No Connection on Server'
                                                   })
                                                 } else {
                                                   Swal.fire({
-                                                    type: 'error',
+                                                    icon: 'error',
                                                     title: 'Saving Failed',
                                                     text: err.message
                                                   })
@@ -4395,7 +4395,7 @@ export default {
                                               })
                                           } else {
                                             Swal.fire({
-                                              type: 'error',
+                                              icon: 'error',
                                               title: 'Saving Failed',
                                               text: jsonize.serverStatus
                                             })
@@ -4405,13 +4405,13 @@ export default {
                                           this.$q.loading.hide()
                                           if (err.message === 'Network Error') {
                                             Swal.fire({
-                                              type: 'error',
+                                              icon: 'error',
                                               title: 'Saving Failed',
                                               text: 'No Connection on Server'
                                             })
                                           } else {
                                             Swal.fire({
-                                              type: 'error',
+                                              icon: 'error',
                                               title: 'Saving Failed',
                                               text: err.message
                                             })
@@ -4419,7 +4419,7 @@ export default {
                                         })
                                     } else {
                                       Swal.fire({
-                                        type: 'error',
+                                        icon: 'error',
                                         title: 'Saving Failed',
                                         text: jsonize.serverStatus
                                       })
@@ -4429,13 +4429,13 @@ export default {
                                     this.$q.loading.hide()
                                     if (err.message === 'Network Error') {
                                       Swal.fire({
-                                        type: 'error',
+                                        icon: 'error',
                                         title: 'Saving Failed',
                                         text: 'No Connection on Server'
                                       })
                                     } else {
                                       Swal.fire({
-                                        type: 'error',
+                                        icon: 'error',
                                         title: 'Saving Failed',
                                         text: err.message
                                       })
@@ -4443,7 +4443,7 @@ export default {
                                   })
                               } else {
                                 Swal.fire({
-                                  type: 'error',
+                                  icon: 'error',
                                   title: 'Saving Failed',
                                   text: response.message
                                 })
@@ -4453,13 +4453,13 @@ export default {
                               this.$q.loading.hide()
                               if (err.message === 'Network Error') {
                                 Swal.fire({
-                                  type: 'error',
+                                  icon: 'error',
                                   title: 'Saving Failed',
                                   text: 'No Connection on Server'
                                 })
                               } else {
                                 Swal.fire({
-                                  type: 'error',
+                                  icon: 'error',
                                   title: 'Saving Failed',
                                   text: err.message
                                 })
@@ -4467,7 +4467,7 @@ export default {
                             })
                         } else {
                           Swal.fire({
-                            type: 'error',
+                            icon: 'error',
                             title: 'Saving Failed',
                             text: response.message
                           })
@@ -4479,13 +4479,13 @@ export default {
                     this.$q.loading.hide()
                     if (err.message === 'Network Error') {
                       Swal.fire({
-                        type: 'error',
+                        icon: 'error',
                         title: 'Saving Failed',
                         text: 'No Connection on Server'
                       })
                     } else {
                       Swal.fire({
-                        type: 'error',
+                        icon: 'error',
                         title: 'Saving Failed',
                         text: err.message
                       })
@@ -4493,7 +4493,7 @@ export default {
                   })
               } else {
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'Saving Failed',
                   text: response.message
                 })
@@ -4503,13 +4503,13 @@ export default {
               this.$q.loading.hide()
               if (err.message === 'Network Error') {
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'Saving Failed',
                   text: 'No Connection on Server'
                 })
               } else {
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'Saving Failed',
                   text: err.message
                 })
@@ -4520,13 +4520,13 @@ export default {
           this.$q.loading.hide()
           if (err.message === 'Network Error') {
             Swal.fire({
-              type: 'error',
+              icon: 'error',
               title: 'Saving Failed',
               text: 'No Connection on Server'
             })
           } else {
             Swal.fire({
-              type: 'error',
+              icon: 'error',
               title: 'Saving Failed',
               text: err.message
             })
@@ -4632,13 +4632,13 @@ export default {
                                                         this.$q.loading.hide()
                                                         if (jsonize.affectedRows > 0) {
                                                           // Swal.fire({
-                                                          //   type: 'success',
+                                                          //   icon: 'success',
                                                           //   title: 'Successfully Saved'
                                                           // })
                                                           this.saveMessage('ARCHITECTURAL')
                                                         } else {
                                                           Swal.fire({
-                                                            type: 'error',
+                                                            icon: 'error',
                                                             title: 'Saving Failed',
                                                             text: jsonize.serverStatus
                                                           })
@@ -4646,7 +4646,7 @@ export default {
                                                       })
                                                   } else {
                                                     Swal.fire({
-                                                      type: 'error',
+                                                      icon: 'error',
                                                       title: 'Saving Failed',
                                                       text: jsonize.serverStatus
                                                     })
@@ -4657,13 +4657,13 @@ export default {
                                                   this.$q.loading.hide()
                                                   if (err.message === 'Network Error') {
                                                     Swal.fire({
-                                                      type: 'error',
+                                                      icon: 'error',
                                                       title: 'Saving Failed',
                                                       text: 'No Connection on Server'
                                                     })
                                                   } else {
                                                     Swal.fire({
-                                                      type: 'error',
+                                                      icon: 'error',
                                                       title: 'Saving Failed',
                                                       text: err.message
                                                     })
@@ -4674,13 +4674,13 @@ export default {
                                               this.$q.loading.hide()
                                               if (err.message === 'Network Error') {
                                                 Swal.fire({
-                                                  type: 'error',
+                                                  icon: 'error',
                                                   title: 'Saving Failed',
                                                   text: 'No Connection on Server'
                                                 })
                                               } else {
                                                 Swal.fire({
-                                                  type: 'error',
+                                                  icon: 'error',
                                                   title: 'Saving Failed',
                                                   text: err.message
                                                 })
@@ -4692,13 +4692,13 @@ export default {
                                         this.$q.loading.hide()
                                         if (err.message === 'Network Error') {
                                           Swal.fire({
-                                            type: 'error',
+                                            icon: 'error',
                                             title: 'Saving Failed',
                                             text: 'No Connection on Server'
                                           })
                                         } else {
                                           Swal.fire({
-                                            type: 'error',
+                                            icon: 'error',
                                             title: 'Saving Failed',
                                             text: err.message
                                           })
@@ -4710,13 +4710,13 @@ export default {
                                   this.$q.loading.hide()
                                   if (err.message === 'Network Error') {
                                     Swal.fire({
-                                      type: 'error',
+                                      icon: 'error',
                                       title: 'Saving Failed',
                                       text: 'No Connection on Server'
                                     })
                                   } else {
                                     Swal.fire({
-                                      type: 'error',
+                                      icon: 'error',
                                       title: 'Saving Failed',
                                       text: err.message
                                     })
@@ -4727,13 +4727,13 @@ export default {
                               this.$q.loading.hide()
                               if (err.message === 'Network Error') {
                                 Swal.fire({
-                                  type: 'error',
+                                  icon: 'error',
                                   title: 'Saving Failed',
                                   text: 'No Connection on Server'
                                 })
                               } else {
                                 Swal.fire({
-                                  type: 'error',
+                                  icon: 'error',
                                   title: 'Saving Failed',
                                   text: err.message
                                 })
@@ -4746,13 +4746,13 @@ export default {
                     this.$q.loading.hide()
                     if (err.message === 'Network Error') {
                       Swal.fire({
-                        type: 'error',
+                        icon: 'error',
                         title: 'Saving Failed',
                         text: 'No Connection on Server'
                       })
                     } else {
                       Swal.fire({
-                        type: 'error',
+                        icon: 'error',
                         title: 'Saving Failed',
                         text: err.message
                       })
@@ -4764,13 +4764,13 @@ export default {
               this.$q.loading.hide()
               if (err.message === 'Network Error') {
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'Saving Failed',
                   text: 'No Connection on Server'
                 })
               } else {
                 Swal.fire({
-                  type: 'error',
+                  icon: 'error',
                   title: 'Saving Failed',
                   text: err.message
                 })
@@ -4890,7 +4890,7 @@ export default {
                                                                       this.saveMessage(progressflow)
                                                                     } else {
                                                                       Swal.fire({
-                                                                        type: 'error',
+                                                                        icon: 'error',
                                                                         title: 'Saving Failed',
                                                                         text: jsonize.serverStatus
                                                                       })
@@ -4902,7 +4902,7 @@ export default {
                                                                   })
                                                               } else {
                                                                 Swal.fire({
-                                                                  type: 'error',
+                                                                  icon: 'error',
                                                                   title: 'Saving Failed',
                                                                   text: jsonize.serverStatus
                                                                 })
@@ -4911,7 +4911,7 @@ export default {
                                                         } else {
                                                           this.$q.loading.hide()
                                                           Swal.fire({
-                                                            type: 'error',
+                                                            icon: 'error',
                                                             title: 'Saving Failed',
                                                             text: response.message
                                                           })
@@ -4928,7 +4928,7 @@ export default {
                                                   })
                                               } else {
                                                 Swal.fire({
-                                                  type: 'error',
+                                                  icon: 'error',
                                                   title: 'Saving Failed',
                                                   text: response.message
                                                 })
@@ -4945,7 +4945,7 @@ export default {
                                         })
                                     } else {
                                       Swal.fire({
-                                        type: 'error',
+                                        icon: 'error',
                                         title: 'Saving Failed',
                                         text: response.message
                                       })
@@ -4962,7 +4962,7 @@ export default {
                               })
                           } else {
                             Swal.fire({
-                              type: 'error',
+                              icon: 'error',
                               title: 'Saving Failed',
                               text: response.message
                             })
@@ -4979,7 +4979,7 @@ export default {
                     })
                 } else {
                   Swal.fire({
-                    type: 'error',
+                    icon: 'error',
                     title: 'Saving Failed',
                     text: response.message
                   })
@@ -5016,7 +5016,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'FINDINGS FOR ' + progressflow + ' IS EMPTY',
           width: '75%'
         })
@@ -5026,7 +5026,7 @@ export default {
       if (progressflowtable.length > 0) {
         if (this.selectedType.includes('Please')) {
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
             width: '75%'
           })
@@ -5066,7 +5066,7 @@ export default {
         this.$q.loading.hide()
         Swal.fire({
           title: 'Success',
-          type: 'success',
+          icon: 'success',
           text: 'SUCCESSFULLY SAVED ' + progressflow
         })
 
@@ -5150,7 +5150,7 @@ export default {
         // }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'FINDINGS FOR ' + progressflow + ' IS EMPTY',
           width: '75%'
         })
@@ -5266,7 +5266,7 @@ export default {
                                                                         this.saveMessage(progressflow)
                                                                       } else {
                                                                         Swal.fire({
-                                                                          type: 'error',
+                                                                          icon: 'error',
                                                                           title: 'Saving Failed',
                                                                           text: jsonize.serverStatus
                                                                         })
@@ -5279,7 +5279,7 @@ export default {
                                                                 } else {
                                                                   this.$q.loading.hide()
                                                                   Swal.fire({
-                                                                    type: 'error',
+                                                                    icon: 'error',
                                                                     title: 'Saving Failed',
                                                                     text: jsonize.serverStatus
                                                                   })
@@ -5287,7 +5287,7 @@ export default {
                                                               })
                                                           } else {
                                                             Swal.fire({
-                                                              type: 'error',
+                                                              icon: 'error',
                                                               title: 'Saving Failed',
                                                               text: response.message
                                                             })
@@ -5304,7 +5304,7 @@ export default {
                                                     })
                                                 } else {
                                                   Swal.fire({
-                                                    type: 'error',
+                                                    icon: 'error',
                                                     title: 'Saving Failed',
                                                     text: jsonize.serverStatus
                                                   })
@@ -5322,7 +5322,7 @@ export default {
                                           })
                                       } else {
                                         Swal.fire({
-                                          type: 'error',
+                                          icon: 'error',
                                           title: 'Saving Failed',
                                           text: response.message
                                         })
@@ -5334,7 +5334,7 @@ export default {
                                     })
                                 } else {
                                   Swal.fire({
-                                    type: 'error',
+                                    icon: 'error',
                                     title: 'Saving Failed',
                                     text: response.message
                                   })
@@ -5346,7 +5346,7 @@ export default {
                               })
                           } else {
                             Swal.fire({
-                              type: 'error',
+                              icon: 'error',
                               title: 'Saving Failed',
                               text: response.message
                             })
@@ -5363,7 +5363,7 @@ export default {
                     })
                 } else {
                   Swal.fire({
-                    type: 'error',
+                    icon: 'error',
                     title: 'Saving Failed',
                     text: response.message
                   })
@@ -5398,7 +5398,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR ' + progressflow + ' IS EMPTY',
           width: '75%'
         })
@@ -5408,7 +5408,7 @@ export default {
       if (progressflowtable.length > 0) {
         if (this.selectedType.includes('Please')) {
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
             width: '75%'
           })
@@ -5447,7 +5447,7 @@ export default {
         this.$q.loading.hide()
         Swal.fire({
           title: 'Success',
-          type: 'success',
+          icon: 'success',
           text: 'SUCCESSFULLY SAVED ' + progressflow
         })
 
@@ -5534,7 +5534,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR ' + progressflow + ' IS EMPTY',
           width: '75%'
         })
@@ -5628,7 +5628,7 @@ export default {
                                                       } else {
                                                         this.$q.loading.hide()
                                                         Swal.fire({
-                                                          type: 'error',
+                                                          icon: 'error',
                                                           title: 'Saving Failed',
                                                           text: jsonize.serverStatus
                                                         })
@@ -5641,7 +5641,7 @@ export default {
                                                 } else {
                                                   this.$q.loading.hide()
                                                   Swal.fire({
-                                                    type: 'error',
+                                                    icon: 'error',
                                                     title: 'Saving Failed',
                                                     text: jsonize.serverStatus
                                                   })
@@ -5660,7 +5660,7 @@ export default {
                                       } else {
                                         this.$q.loading.hide()
                                         Swal.fire({
-                                          type: 'error',
+                                          icon: 'error',
                                           title: 'Saving Failed',
                                           text: response.message
                                         })
@@ -5673,7 +5673,7 @@ export default {
                                 } else {
                                   this.$q.loading.hide()
                                   Swal.fire({
-                                    type: 'error',
+                                    icon: 'error',
                                     title: 'Saving Failed',
                                     text: response.message
                                   })
@@ -5691,7 +5691,7 @@ export default {
                       } else {
                         this.$q.loading.hide()
                         Swal.fire({
-                          type: 'error',
+                          icon: 'error',
                           title: 'Saving Failed',
                           text: response.message
                         })
@@ -5709,7 +5709,7 @@ export default {
             } else {
               this.$q.loading.hide()
               Swal.fire({
-                type: 'error',
+                icon: 'error',
                 title: 'Saving Failed',
                 text: response.message
               })
@@ -5723,7 +5723,7 @@ export default {
         this.usersignageaccess = false
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR SIGNAGE IS EMPTY',
           width: '75%'
         })
@@ -5733,7 +5733,7 @@ export default {
       if (this.signdata.length > 0) {
         if (this.selectedType.includes('Please')) {
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
             width: '75%'
           })
@@ -5771,7 +5771,7 @@ export default {
         this.$q.loading.hide()
         Swal.fire({
           title: 'Success',
-          type: 'success',
+          icon: 'success',
           text: 'SUCCESSFULLY SAVED SIGNAGE FINDINGS'
         })
         this.usersignageaccess = false
@@ -5809,7 +5809,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR SIGNAGE IS EMPTY',
           width: '75%'
         })
@@ -5906,7 +5906,7 @@ export default {
                                                         } else {
                                                           this.$q.loading.hide()
                                                           Swal.fire({
-                                                            type: 'error',
+                                                            icon: 'error',
                                                             title: 'Saving Failed',
                                                             text: jsonize.serverStatus
                                                           })
@@ -5919,7 +5919,7 @@ export default {
                                                   } else {
                                                     this.$q.loading.hide()
                                                     Swal.fire({
-                                                      type: 'error',
+                                                      icon: 'error',
                                                       title: 'Saving Failed',
                                                       text: jsonize.serverStatus
                                                     })
@@ -5938,7 +5938,7 @@ export default {
                                         } else {
                                           this.$q.loading.hide()
                                           Swal.fire({
-                                            type: 'error',
+                                            icon: 'error',
                                             title: 'Saving Failed',
                                             text: response.message
                                           })
@@ -5957,7 +5957,7 @@ export default {
                           } else {
                             this.$q.loading.hide()
                             Swal.fire({
-                              type: 'error',
+                              icon: 'error',
                               title: 'Saving Failed',
                               text: response.message
                             })
@@ -5971,7 +5971,7 @@ export default {
                 } else {
                   this.$q.loading.hide()
                   Swal.fire({
-                    type: 'error',
+                    icon: 'error',
                     title: 'Saving Failed',
                     text: response.message
                   })
@@ -5990,7 +5990,7 @@ export default {
         this.userelectricalaccess = false
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR ELECTRICAL IS EMPTY',
           width: '75%'
         })
@@ -6000,7 +6000,7 @@ export default {
       if (this.elecdata.length > 0) {
         if (this.selectedType.includes('Please')) {
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
             width: '75%'
           })
@@ -6038,7 +6038,7 @@ export default {
         this.$q.loading.hide()
         Swal.fire({
           title: 'Success',
-          type: 'success',
+          icon: 'success',
           text: 'SUCCESSFULLY SAVED ELECTRICAL FINDINGS'
         })
 
@@ -6082,7 +6082,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR ELECTRICAL IS EMPTY',
           width: '75%'
         })
@@ -6181,7 +6181,7 @@ export default {
                                                         } else {
                                                           this.$q.loading.hide()
                                                           Swal.fire({
-                                                            type: 'error',
+                                                            icon: 'error',
                                                             title: 'Saving Failed',
                                                             text: jsonize.serverStatus
                                                           })
@@ -6194,7 +6194,7 @@ export default {
                                                   } else {
                                                     this.$q.loading.hide()
                                                     Swal.fire({
-                                                      type: 'error',
+                                                      icon: 'error',
                                                       title: 'Saving Failed',
                                                       text: jsonize.serverStatus
                                                     })
@@ -6213,7 +6213,7 @@ export default {
                                         } else {
                                           this.$q.loading.hide()
                                           Swal.fire({
-                                            type: 'error',
+                                            icon: 'error',
                                             title: 'Saving Failed',
                                             text: response.message
                                           })
@@ -6236,7 +6236,7 @@ export default {
                           } else {
                             this.$q.loading.hide()
                             Swal.fire({
-                              type: 'error',
+                              icon: 'error',
                               title: 'Saving Failed',
                               text: response.message
                             })
@@ -6254,7 +6254,7 @@ export default {
                 } else {
                   this.$q.loading.hide()
                   Swal.fire({
-                    type: 'error',
+                    icon: 'error',
                     title: 'Saving Failed',
                     text: response.message
                   })
@@ -6272,7 +6272,7 @@ export default {
         this.usermechanicalaccess = false
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR MECHANICAL IS EMPTY',
           width: '75%'
         })
@@ -6282,7 +6282,7 @@ export default {
       if (this.mechdata.length > 0) {
         if (this.selectedType.includes('Please')) {
           Swal.fire({
-            type: 'error',
+            icon: 'error',
             title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
             width: '75%'
           })
@@ -6319,7 +6319,7 @@ export default {
         this.$q.loading.hide()
         Swal.fire({
           title: 'Success',
-          type: 'success',
+          icon: 'success',
           text: 'SUCCESSFULLY SAVED MECHANICAL FINDINGS'
         })
 
@@ -6361,7 +6361,7 @@ export default {
         }
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           text: 'FINDINGS FOR MECHANICAL IS EMPTY',
           width: '75%'
         })
@@ -6601,13 +6601,13 @@ export default {
     errorMessage (err) {
       if (err.message === 'Network Error') {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'Saving Failed',
           text: 'No Connection on Server'
         })
       } else {
         Swal.fire({
-          type: 'error',
+          icon: 'error',
           title: 'Saving Failed',
           text: err.message
         })
@@ -6615,7 +6615,7 @@ export default {
     },
     showmap () {
       // Swal.fire({
-      //   type: 'info',
+      //   icon: 'info',
       //   title: `I'm the map now`
       // })
       // let map = new google.maps.Map(document.getElementById('map'), {
