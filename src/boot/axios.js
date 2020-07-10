@@ -30,7 +30,7 @@ export default async ({ Vue }) => {
 
   /* **Local */
   const instance = axios.create({
-    baseurl: 'http://localhost:27072',
+    baseurl: 'http://localhost:8080/http://localhost:27072',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',

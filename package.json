@@ -6,10 +6,9 @@
   "author": "Patrick Alvin Alcala <45809622+PatCode9@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev -m spa -p 1234",
+    "dev": "quasar dev -m spa -p 1234 --debug",
     "build": "quasar build -m pwa && mv dist/pwa public",
     "desk": "quasar build -m electron",
-    "debug": "quasar build --debug -m spa",
     "pwa": "quasar build -m pwa",
     "deploy": "now --prod"
   },
