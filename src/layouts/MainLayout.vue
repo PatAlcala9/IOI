@@ -7,20 +7,15 @@
 </template>
 
 <script>
-/* import { openURL } from 'quasar' */
 import { Encrypt } from '../assets/js/L3S'
 /* import { id } from 'vuex' */
 
 export default {
   name: 'MainLayout',
   data () {
-    return {
-      /* leftDrawerOpen: false,
-      logged: false */
-    }
+    return {}
   },
   methods: {
-    /* openURL, */
     checkLogin () {
       if (this.$q.sessionStorage.has('__' + Encrypt('id') + '_token') === true) {
         // this.$router.push('main')
