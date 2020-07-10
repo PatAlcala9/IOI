@@ -20,7 +20,7 @@ export default async ({ Vue }) => {
 
   /* **New Server */
   /* const instance = axios.create({
-    baseURL: 'https://cors-anywhere.herokuapp.com/eops.davaocity.gov.ph/ioi/',
+    baseURL: 'https://ioi-server.herokuapp.com/eops.davaocity.gov.ph/ioi/',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',
@@ -30,7 +30,7 @@ export default async ({ Vue }) => {
 
   /* **Local */
   const instance = axios.create({
-    baseurl: 'http://localhost:8080/http://localhost:27072',
+    baseurl: 'https://ioi-server.herokuapp.com/http://localhost:27072',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',

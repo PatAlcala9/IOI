@@ -13,13 +13,14 @@
     "deploy": "now --prod"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@quasar/extras": "^1.8.2",
     "@studiometa/vue-mapbox-gl": "^1.2.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "cryptr": "^4.0.2",
-    "gsap": "^3.0.5",
+    "gsap": "^3.4.0",
     "hashr": "^1.0.2",
     "https-proxy-agent": "^5.0.0",
     "mapbox-gl": "^1.11.0",
