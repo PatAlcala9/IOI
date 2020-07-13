@@ -48,7 +48,7 @@ module.exports = function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       // devtool: 'source-map',
       // transpile: false,
-      // distDir: ctx.mode.pwa ? 'public' : null,
+      distDir: ctx.mode.pwa ? 'public' : null,
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
@@ -137,6 +137,7 @@ module.exports = function (ctx) {
         orientation: 'portrait',
         background_color: '#507f95',
         theme_color: '#027be3',
+        start_url: 'https://iips-oi.vercel.app',
         icons: [
           {
             src: 'icons/icon-128x128.png',

@@ -10,8 +10,7 @@
     "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
     "pwa": "quasar build -m pwa",
-    "deploy": "now --prod",
-    "start": "quasar build -m pwa"
+    "deploy": "now --prod"
   },
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
