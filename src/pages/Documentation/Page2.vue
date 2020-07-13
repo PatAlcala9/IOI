@@ -59,7 +59,7 @@
                 <q-btn unelevated class="button1 doc-button" color="primary" label="How to Use" @click="nextPage">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">For users</q-tooltip>
                 </q-btn>
-                <q-btn unelevated class="button2 doc-button"  color="primary" label="Security Details">
+                <q-btn unelevated class="button2 doc-button"  color="primary" label="Security Details" @click="openSecurity">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">For more info about Security</q-tooltip>
                 </q-btn>
                 <q-btn unelevated class="button3 doc-button" color="primary" label="Technical Info" @click="openTechnical">
@@ -127,6 +127,9 @@ export default {
     },
     nextPage () {
       this.$router.push('/docs/3', () => {})
+    },
+    openSecurity () {
+      this.$router.push('/info/secs', () => {})
     }
   },
   beforeDestroy () {

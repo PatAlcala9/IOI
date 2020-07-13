@@ -6,8 +6,9 @@
   "author": "Patrick Alvin Alcala <45809622+PatCode9@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev -m spa -p 1234 --debug",
-    "build": "quasar build -m pwa && mv dist/pwa public",
+    "dev": "quasar dev -m spa -p 2234",
+    "build2": "quasar build -m pwa && mv dist/pwa public",
+    "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
     "pwa": "quasar build -m pwa",
     "deploy": "now --prod"
@@ -16,13 +17,11 @@
     "@glidejs/glide": "^3.4.1",
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@quasar/extras": "^1.8.2",
-    "@studiometa/vue-mapbox-gl": "^1.2.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "cryptr": "^4.0.2",
     "gsap": "^3.4.0",
     "hashr": "^1.0.2",
-    "https-proxy-agent": "^5.0.0",
     "mapbox-gl": "^1.11.0",
     "md5": "^2.2.1",
     "quasar": "^1.12.8",
@@ -40,6 +39,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
+    "webpack-obfuscator": "^1.6.0",
     "workbox-webpack-plugin": "^5.0.0"
   },
   "browserslist": [

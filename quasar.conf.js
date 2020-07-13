@@ -7,7 +7,9 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
-module.exports = function (/* ctx */) {
+const JavaScriptObfuscator = require('webpack-obfuscator')
+
+module.exports = function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -19,7 +21,6 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-
       'axios'
     ],
 
@@ -45,9 +46,9 @@ module.exports = function (/* ctx */) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-      devtool: 'source-map',
+      /* devtool: 'source-map', */
       // transpile: false,
-
+      // distDir: ctx.mode.pwa ? 'public' : null,
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
@@ -70,6 +71,16 @@ module.exports = function (/* ctx */) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
+        if (!ctx.dev && !ctx.debug) {
+          cfg.plugins.push(new JavaScriptObfuscator({
+            debugProtection: true,
+            debugProtectionInterval: true,
+            rotateStringArray: true,
+            renameGlobals: true,
+            stringArrayEncoding: 'rc4',
+            stringArrayThreshold: 1
+          }))
+        }
       }
     },
 
@@ -114,7 +125,10 @@ module.exports = function (/* ctx */) {
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxOptions: {
+        skipWaiting: true,
+        clientsClaim: true
+      }, // only for GenerateSW
       manifest: {
         name: 'IIPS Online Inspection',
         short_name: 'IOI',
@@ -149,7 +163,18 @@ module.exports = function (/* ctx */) {
             sizes: '512x512',
             type: 'image/png'
           }
-        ]
+        ],
+        metaVariables: {
+          appleMobileWebAppCapable: 'yes',
+          appleMobileWebAppStatusBarStyle: 'default',
+          appleTouchIcon120: 'icons/apple-icon-120x120.png',
+          appleTouchIcon152: 'icons/apple-icon-152x152.png',
+          appleTouchIcon167: 'icons/apple-icon-167x167.png',
+          appleTouchIcon180: 'cons/apple-icon-180x180.png',
+          appleSafariPinnedTab: 'icons/safari-pinned-tab.svg',
+          msapplicationTileImage: 'icons/ms-icon-144x144.png',
+          msapplicationTileColor: '#000000'
+        }
       }
     },
 
@@ -182,7 +207,6 @@ module.exports = function (/* ctx */) {
 
       builder: {
         // https://www.electron.build/configuration/configuration
-
         appId: 'ioi'
       },
 

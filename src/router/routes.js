@@ -12,7 +12,9 @@ const routes = [
       { path: '/docs/2', component: () => import('pages/Documentation/Page2.vue') },
       { path: '/docs/3', component: () => import('pages/Documentation/Page3.vue') },
       { path: '/mobile', component: () => import('pages/Description/Mobile.vue') },
-      { path: '/info/tech', component: () => import('pages/Description/Technical.vue') }
+      { path: '/info/tech', component: () => import('pages/Description/Technical.vue') },
+      { path: '/info/secs', component: () => import('pages/Description/Security.vue') },
+      { path: '/info/secs2', component: () => import('pages/Description/Security2.vue') }
     ]
   },
 
