@@ -7,11 +7,11 @@
   "private": true,
   "scripts": {
     "dev": "quasar dev -m spa -p 2234",
-    "build2": "quasar build -m pwa && mv dist/pwa public",
     "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
     "pwa": "quasar build -m pwa",
-    "deploy": "now --prod"
+    "deploy": "now --prod",
+    "start": "quasar build -m pwa"
   },
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
@@ -24,12 +24,12 @@
     "hashr": "^1.0.2",
     "mapbox-gl": "^1.11.0",
     "md5": "^2.2.1",
-    "quasar": "^1.12.8",
+    "quasar": "^1.12.11",
     "sweetalert2": "^9.15.2",
     "zipson": "^0.2.11"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
+    "@quasar/app": "^2.0.5",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
@@ -52,6 +52,6 @@
   "engines": {
     "node": ">= 10.18.1",
     "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
+    "yarn": ">= 1.22.4"
   }
 }
