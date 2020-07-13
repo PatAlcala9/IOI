@@ -1,6 +1,6 @@
 <template>
   <q-page padding class="page">
-    <div class="workArea">
+
         <div class="q-pa-md">
           <div class="column">
             <div class="col">
@@ -56,24 +56,27 @@
 
             <div class="col">
               <div class="grid">
-                <q-btn unelevated class="button1 doc-button" color="primary" label="How to Use" @click="nextPage">
+                <q-btn unelevated class="button1 doc-button" size="lg" color="primary" label="How to Use" @click="nextPage">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">For users</q-tooltip>
                 </q-btn>
-                <q-btn unelevated class="button2 doc-button"  color="primary" label="Security Details" @click="openSecurity">
+                <q-btn unelevated class="button2 doc-button" size="lg" color="primary" label="Security Details" @click="openSecurity">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">For more info about Security</q-tooltip>
                 </q-btn>
-                <q-btn unelevated class="button3 doc-button" color="primary" label="Technical Info" @click="openTechnical">
+                <q-btn unelevated class="button3 doc-button" size="lg" color="primary" label="Technical Info" @click="openTechnical">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">For curios people</q-tooltip>
                 </q-btn>
 
-                <q-btn unelevated class="button4 doc-button" color="primary" label="Back" @click="goBack">
+                <!--<q-btn unelevated class="button4 doc-button" size="lg" color="primary" label="Back" @click="goBack">
+                  <q-tooltip content-class="bg-black" content-style="font-size: 16px">Return to Main Documentation Page</q-tooltip>
+                </q-btn>-->
+                <q-btn flat rounded class="button4 doc-button" size="lg" color="white" label="Back" @click="goBack">
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">Return to Main Documentation Page</q-tooltip>
                 </q-btn>
               </div>
             </div>
           </div>
         </div>
-    </div>
+
   </q-page>
 </template>
 
@@ -210,9 +213,11 @@ export default {
   }
 
   .doc-button {
-    margin-top: 2em;
+   /* margin-top: 2em;
     margin-bottom: -0.1em;
-    height: 3.2em;
+    height: 3.2em;*/
+    margin-top: 2em;
+    margin-bottom: -0.6em;
   }
 
   /* Phone Screen */
@@ -222,7 +227,7 @@ export default {
     }
 
     .page {
-      height: 150vh;
+      height: 160vh;
     }
 
     .grid {
@@ -316,9 +321,9 @@ export default {
     }
 
     .doc-button {
-      margin-left: 3em;
+      margin-left: 3.1em;
       margin-top: 2em;
-      width: 20em
+      width: 15em
     }
 
     .para-list {

@@ -41,7 +41,8 @@
       </div>
 
       <div class="button">
-        <q-btn unelevated class="doc-button" color="primary" @click="goBack" size="lg">Back</q-btn>
+        <!--<q-btn unelevated class="doc-button" color="primary" @click="goBack" size="lg">Back</q-btn>-->
+        <q-btn flat rounded color="white" size="lg" class="back" @click="goBack">Back</q-btn>
       </div>
     </div>
   </q-page>

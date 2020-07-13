@@ -1,7 +1,6 @@
 <template>
   <q-page padding class="page">
-    <div class="workArea">
-      <div class="q-pa-md">
+    <div class="q-pa-md">
         <div class="column">
           <div class="col">
             <div class="pageTitle">
@@ -36,13 +35,12 @@
                 <q-tooltip content-class="bg-black" content-style="font-size: 16px">Find out about Security of IIPS</q-tooltip>
               </q-btn>
 
-              <q-btn flat rounded class="extra-space" color="white" size="lg" label="Back" @click="backPage">
+              <q-btn flat rounded class="extra-space doc-button" color="white" size="lg" label="Back" @click="backPage">
                 <q-tooltip content-class="bg-black" content-style="font-size: 16px">Go Back to Main Documentation Page</q-tooltip>
               </q-btn>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </q-page>
 </template>
@@ -83,7 +81,7 @@ export default {
 
   .title {
     color: #ffbe00;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .para {
@@ -108,5 +106,41 @@ export default {
 
   .page {
     height: 105vh;
+  }
+
+  @media screen and (min-width: 580px) {
+    .pageTitle {
+      font-size: 3.2em;
+    }
+
+    .text {
+      font-size: 1.2em;
+    }
+
+    .para-title {
+      font-size: 1.3em;
+    }
+
+    .button-wrapper {
+      margin-top: 5rem;
+    }
+
+    .doc-button {
+      width: 10rem;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .pageTitle {
+      font-size: 3.8em;
+    }
+
+    .text {
+      font-size: 1.5em;
+    }
+
+    .para-title {
+      font-size: 1.6em;
+    }
   }
 </style>
