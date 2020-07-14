@@ -49,6 +49,13 @@
             <span class="text"></span>
           </p>
         </div>
+
+        <div class="col">
+          <p class="para">
+            <span class="para-title">Anti-Debugging</span>
+            <span class="text"></span>
+          </p>
+        </div>
       </div>
     </div>
   </q-page>
@@ -95,6 +102,6 @@ export default {
   }
 
   .page {
-    height: 110vh;
+    height: 120vh;
   }
 </style>

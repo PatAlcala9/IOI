@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "quasar dev -m spa -p 2234",
-    "build": "quasar build -m pwa --fix",
+    "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
     "deploy": "now --prod"
   },

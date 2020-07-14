@@ -17,7 +17,6 @@ const routes = [
       { path: '/info/secs2', component: () => import('pages/Description/Security2.vue') }
     ]
   },
-
   // Always leave this as last one,
   // but you can also remove it
   {

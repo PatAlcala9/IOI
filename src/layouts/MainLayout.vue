@@ -8,15 +8,12 @@
 
 <script>
 import { Encrypt } from '../assets/js/L3S'
-/* import { getWorkerInstance } from 'app/src-pwa/custom-service-worker' */
 /* import { id } from 'vuex' */
 
 export default {
   name: 'MainLayout',
   data () {
-    return {
-      installPrompt: null
-    }
+    return {}
   },
   methods: {
     checkLogin () {
@@ -31,27 +28,10 @@ export default {
     logout () {
       this.$q.sessionStorage.remove('__' + Encrypt('id') + '_token')
       window.location.reload(false)
-    },
-    registerSW () {
-      getWorkerInstance().then(workerInstance => {
-        this.worker = workerInstance.active
-      })
-    },
-    install () {
-      this.initInstall.prompt()
-    },
-    initInstall () {
-      window.addEventListener('beforeinstallprompt', (e) => {
-        this.initInstall = e
-      })
     }
   },
   created () {
     this.checkLogin()
-    this.registerSW()
-  },
-  mounted () {
-    this.initInstall()
   }
 }
 
