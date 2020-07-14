@@ -73,12 +73,25 @@ module.exports = function (ctx) {
         })
         if (!ctx.dev && !ctx.debug) {
           cfg.plugins.push(new JavaScriptObfuscator({
+            compact: true,
+            controlFlowFlattening: false,
+            deadCodeInjection: false,
             debugProtection: true,
-            debugProtectionInterval: true,
+            debugProtectionInterval: false,
+            disableConsoleOutput: true,
+            identifierNamesGenerator: 'hexadecimal',
+            log: false,
+            numbersToExpressions: false,
+            renameGlobals: false,
             rotateStringArray: true,
-            renameGlobals: true,
-            stringArrayEncoding: 'rc4',
-            stringArrayThreshold: 1
+            selfDefending: false,
+            shuffleStringArray: true,
+            simplify: true,
+            splitStrings: false,
+            stringArray: true,
+            stringArrayEncoding: false,
+            stringArrayThreshold: 0.75,
+            unicodeEscapeSequence: false
           }))
         }
       }
@@ -128,7 +141,7 @@ module.exports = function (ctx) {
       workboxOptions: {
         skipWaiting: true,
         clientsClaim: true
-      }, // only for GenerateSW
+      },
       manifest: {
         name: 'IIPS Online Inspection',
         short_name: 'IOI',
@@ -137,7 +150,7 @@ module.exports = function (ctx) {
         orientation: 'portrait',
         background_color: '#507f95',
         theme_color: '#027be3',
-        start_url: 'https://iips-oi.vercel.app',
+        start_url: 'https://iipsoi.now.sh',
         icons: [
           {
             src: 'icons/icon-128x128.png',
@@ -164,8 +177,8 @@ module.exports = function (ctx) {
             sizes: '512x512',
             type: 'image/png'
           }
-        ],
-        metaVariables: {
+        ]
+        /* metaVariables: {
           appleMobileWebAppCapable: 'yes',
           appleMobileWebAppStatusBarStyle: 'default',
           appleTouchIcon120: 'icons/apple-icon-120x120.png',
@@ -175,7 +188,7 @@ module.exports = function (ctx) {
           appleSafariPinnedTab: 'icons/safari-pinned-tab.svg',
           msapplicationTileImage: 'icons/ms-icon-144x144.png',
           msapplicationTileColor: '#000000'
-        }
+        } */
       }
     },
 

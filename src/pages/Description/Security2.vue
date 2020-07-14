@@ -11,27 +11,41 @@
         <div class="col">
           <p class="para">
             <span class="para-title">IIPS Online Inspection </span>
-            <span class="text">is secured by L3S. Originally developed for IIPS as a password security. But by switching to web application we gonna need more than password security. Now L3S provides End-to-End Encryption, Data Lock, Security Headers, Data Vault, and Code Obfuscation</span>
+            <span class="text">is secured by L3S. Originally developed for IIPS as a password security. But by switching to web application we gonna need more than password security. Now L3S provides End-to-End Encryption, Data Lock, and Data Vault. Together with Code Obfuscation and Security Headers.</span>
           </p>
         </div>
 
         <div class="col">
           <p class="para">
-            <span class="para-title">End-to-End Encryption </span>
-            <span class="text">is a security features that ensures every data send to the network is encrypted. No Data is leaked accros the network.</span>
+            <span class="para-title">End-to-End Encryption. </span>
+            <span class="text">This ensures that the data sent across the network is unreadable. This prevents the hacker from performing an attack called Man-in-the-Middle. But this won't stop them from altering the data, just makes it harder. This L3S feature uses its own encryption.</span>
           </p>
         </div>
 
         <div class="col">
           <p class="para">
-            <span class="para-title">Data Lock </span>
-            <span class="text">is a security features that ensures the data sent to the network is unchangeable. </span>
+            <span class="para-title">Data Lock. </span>
+            <span class="text"></span>
           </p>
         </div>
 
         <div class="col">
           <p class="para">
-            <span class="para-title">Security Headers </span>
+            <span class="para-title">Data Vault. </span>
+            <span class="text"></span>
+          </p>
+        </div>
+
+        <div class="col">
+          <p class="para">
+            <span class="para-title">Code Obfuscation. </span>
+            <span class="text"></span>
+          </p>
+        </div>
+
+        <div class="col">
+          <p class="para">
+            <span class="para-title">Security Headers. </span>
             <span class="text"></span>
           </p>
         </div>
@@ -78,5 +92,9 @@ export default {
     /* margin-top: 2em;
      margin-bottom: -0.1em;
      height: 3.2em;*/
+  }
+
+  .page {
+    height: 110vh;
   }
 </style>

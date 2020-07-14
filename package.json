@@ -7,9 +7,8 @@
   "private": true,
   "scripts": {
     "dev": "quasar dev -m spa -p 2234",
-    "build": "quasar build -m pwa",
+    "build": "quasar build -m pwa --fix",
     "desk": "quasar build -m electron",
-    "pwa": "quasar build -m pwa",
     "deploy": "now --prod"
   },
   "dependencies": {
