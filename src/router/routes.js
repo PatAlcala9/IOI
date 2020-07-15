@@ -14,7 +14,7 @@ const routes = [
       { path: '/mobile', component: () => import('pages/Description/Mobile.vue') },
       { path: '/info/tech', component: () => import('pages/Description/Technical.vue') },
       { path: '/info/secs', component: () => import('pages/Description/Security.vue') },
-      { path: '/info/secs2', component: () => import('pages/Description/Security2.vue') }
+      { path: '/info/secs/2', component: () => import('pages/Description/Security2.vue') }
     ]
   },
   // Always leave this as last one,

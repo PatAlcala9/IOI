@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     nextPage () {
-      this.$router.push('/info/secs2', () => {})
+      this.$router.push('/info/secs/2', () => {})
     },
     backPage () {
       this.$router.push('/docs/2', () => {})
