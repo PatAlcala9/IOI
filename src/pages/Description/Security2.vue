@@ -24,15 +24,22 @@
 
         <div class="col">
           <p class="para">
-            <span class="para-title">Data Lock. </span>
-            <span class="text"></span>
+            <span class="para-title">Data Lock </span>
+            <span class="text">is a custom security header that serve it own purpose. It locks the data sent accros the network preventing alteration until it reach the database. </span>
           </p>
         </div>
 
         <div class="col">
           <p class="para">
-            <span class="para-title">Data Vault. </span>
-            <span class="text"></span>
+            <span class="para-title">Data Vault </span>
+            <span class="text">is a method of storing data inside the browser that it's only accessable by the user. If your thinking of Browser Cookie, then you are wrong. Cookies is not recommended because it has some vulnerability that can be access through the network.</span>
+          </p>
+        </div>
+
+        <div class="col">
+          <p class="para">
+            <span class="para-title">Anti-Debugging </span>
+            <span class="text">This is the first line of defense, it prevent hackers from reading the flow of the code by blocking the debugging feature of the computer browser. The debugging tool is only for computer browser, this feature is not built on a mobile browser. You can try it be pressing F12 on your keyboard. Warning though, your browser may freeze or crash. </span>
           </p>
         </div>
 
@@ -46,13 +53,6 @@
         <div class="col">
           <p class="para">
             <span class="para-title">Security Headers. </span>
-            <span class="text"></span>
-          </p>
-        </div>
-
-        <div class="col">
-          <p class="para">
-            <span class="para-title">Anti-Debugging</span>
             <span class="text"></span>
           </p>
         </div>
@@ -102,6 +102,6 @@ export default {
   }
 
   .page {
-    height: 120vh;
+    height: 70rem;
   }
 </style>

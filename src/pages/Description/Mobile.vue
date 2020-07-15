@@ -82,7 +82,7 @@ export default {
 
 <style scoped>
   .page {
-    height: 570vh;
+    height: 240rem;
   }
 
   grid-container {
