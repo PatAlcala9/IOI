@@ -19,24 +19,24 @@ export default async ({ Vue }) => {
   }) */
 
   /* **New Server */
-  const instance = axios.create({
+  /* const instance = axios.create({
     baseURL: 'https://ioi-server.herokuapp.com/gateway.davaocity.gov.ph/ioi/',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',
       'X-Data-Lock': key
     }
-  })
+  }) */
 
   /* **Local */
-  /* const instance = axios.create({
-    baseurl: 'https://ioi-server.herokuapp.com/http://localhost:27072',
+  const instance = axios.create({
+    baseurl: '',
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Secure-Connection': 'OCBO',
       'X-Data-Lock': key
     }
-  }) */
+  })
 
   instance.defaults.headers.post['Content-Type'] = 'application/json'
 

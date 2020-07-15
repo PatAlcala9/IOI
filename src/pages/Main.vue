@@ -128,7 +128,7 @@
           </q-tr>
         </template>
       </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldglgdata, 'LINE AND GRADE')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera"/>
 
         <q-dialog v-model="deleterowblg" persistent transition-show="scale" transition-hide="scale">
@@ -206,7 +206,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgarchdata, 'ARCHITECTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgarchdata, 'ARCHITECTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbar" persistent transition-show="scale" transition-hide="scale">
@@ -284,7 +284,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgstructdata, 'STRUCTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgstructdata, 'STRUCTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbst" persistent transition-show="scale" transition-hide="scale">
@@ -362,7 +362,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgplumdata, 'SANITARY/PLUMBING')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgplumdata, 'SANITARY/PLUMBING')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbpl" persistent transition-show="scale" transition-hide="scale">
@@ -440,7 +440,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgelecdata, 'ELECTRICAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgelecdata, 'ELECTRICAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbel" persistent transition-show="scale" transition-hide="scale">
@@ -518,7 +518,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgmechdata, 'MECHANICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgmechdata, 'MECHANICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowbme" persistent transition-show="scale" transition-hide="scale">
@@ -1280,7 +1280,7 @@
           </q-tr>
         </template>
       </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldglgdata, 'LINE AND GRADE')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera"/>
 
         <q-dialog v-model="deleterowblg" persistent transition-show="scale" transition-hide="scale">
@@ -1358,7 +1358,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgarchdata, 'ARCHITECTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgarchdata, 'ARCHITECTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbar" persistent transition-show="scale" transition-hide="scale">
@@ -1436,7 +1436,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgstructdata, 'STRUCTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgstructdata, 'STRUCTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbst" persistent transition-show="scale" transition-hide="scale">
@@ -1514,7 +1514,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgplumdata, 'SANITARY/PLUMBING')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgplumdata, 'SANITARY/PLUMBING')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbpl" persistent transition-show="scale" transition-hide="scale">
@@ -1592,7 +1592,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgelecdata, 'ELECTRICAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgelecdata, 'ELECTRICAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowbel" persistent transition-show="scale" transition-hide="scale">
@@ -1670,7 +1670,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding(bldgmechdata, 'MECHANICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgmechdata, 'MECHANICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowbme" persistent transition-show="scale" transition-hide="scale">
@@ -2486,7 +2486,9 @@ export default {
       savedElectricalMsg: null,
 
       savedMechanical: 0,
-      savedMechanicalMsg: null
+      savedMechanicalMsg: null,
+
+      selectedType: null
     }
   },
   computed: {},
@@ -2537,10 +2539,13 @@ export default {
     logout () {
       const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
       const darkmode = this.$q.sessionStorage.has('__' + l3s.Encrypt('dark') + '_token')
-      const data = JSON.stringify({
+      /* const data = JSON.stringify({
+          is_online: 0
+       }) */
+      /* this.$axios.put('setOnline/' + (empid) + '&data=' + data) */
+      this.$axios.put('setOnline/' + (empid), {
         is_online: 0
       })
-      this.$axios.put('setOnline/' + (empid) + '&data=' + data)
       this.$q.sessionStorage.clear()
       if (darkmode) {
         this.$q.sessionStorage.set('__' + l3s.Encrypt('dark') + '_token', l3s.EncryptNetwork(true))
@@ -5127,19 +5132,27 @@ export default {
               } else {
                 nprogressflow = progressflow
               }
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                receivingid: this.appid,
+                datetransac: year + '-' + month + '-' + day + ' ' + fulltime + ':00',
+                employeeid: empid,
+                remarks: whereabouts1 + ' ' + nprogressflow + ' ' + whereabouts2
+              }) */
+              return this.$axios.post('/api/UpdateDocflow', {
                 receivingid: this.appid,
                 datetransac: year + '-' + month + '-' + day + ' ' + fulltime + ':00',
                 employeeid: empid,
                 remarks: whereabouts1 + ' ' + nprogressflow + ' ' + whereabouts2
               })
-              return this.$axios.post('UpdateDocflow&data=' + data)
             })
             .then(() => {
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                typeofconstruction: this.selectedType
+              }) */
+              /* return this.$axios.put('/api/UpdateReceiving/' + this.appid + '&data=' + data) */
+              return this.$axios.put('/api/UpdateReceiving/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
-              return this.$axios.put('/api/UpdateReceiving/' + this.appid + '&data=' + data)
             })
         }
 
@@ -5514,7 +5527,16 @@ export default {
 
               // ADD TAGWORD TO GETWHEREABOUTS
 
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                occupancyreceivingid: this.appid,
+                txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
+                remarks: whereabouts1 + ' ' + nprogressflow + ' ' + whereabouts2,
+                is_tag: isTag,
+                tagword: 'OCCINSPECTED',
+                is_approve: 1,
+                employeeid: this.empid
+              }) */
+              return this.$axios.post('/api/UpdateDocflowOcc', {
                 occupancyreceivingid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
                 remarks: whereabouts1 + ' ' + nprogressflow + ' ' + whereabouts2,
@@ -5523,13 +5545,15 @@ export default {
                 is_approve: 1,
                 employeeid: this.empid
               })
-              return this.$axios.post('UpdateDocflowOcc&data=' + data)
             })
             .then(() => {
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                typeofconstruction: this.selectedType
+              }) */
+              /* return this.$axios.put('/api/UpdateOccupancy/' + this.appid + '&data=' + data) */
+              return this.$axios.put('/api/UpdateOccupancy/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
-              return this.$axios.put('/api/UpdateOccupancy/' + this.appid + '&data=' + data)
             })
         }
       } else {
@@ -5789,7 +5813,16 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                signageid: this.appid,
+                txndate: year + '-' + month + '-' + day + ' 00:00:00',
+                remarks: whereabouts,
+                is_tag: isTag,
+                tagword: 'SIGNINSPECTED',
+                is_approve: 1,
+                employeeid: this.empid
+              }) */
+              return this.$axios.post('/api/UpdateDocflowSign', {
                 signageid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' 00:00:00',
                 remarks: whereabouts,
@@ -5798,13 +5831,14 @@ export default {
                 is_approve: 1,
                 employeeid: this.empid
               })
-              return this.$axios.post('/api/UpdateDocflowSign' + '&data=' + data)
             })
             .then(() => {
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                typeofconstruction: this.selectedType
+              }) */
+              return this.$axios.put('/api/UpdateSignage/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
-              return this.$axios.put('/api/UpdateSignage/' + this.appid + '&data=' + data)
             })
         }
       } else {
@@ -6061,7 +6095,17 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                electricalid: this.appid,
+                txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
+                remarks: whereabouts,
+                is_tag: isTag,
+                tagword: 'ELECINSPECTED',
+                is_approve: 0,
+                employeeid: this.empid,
+                is_delete: 0
+              }) */
+              return this.$axios.post('/api/UpdateDocflowElec', {
                 electricalid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
                 remarks: whereabouts,
@@ -6071,13 +6115,14 @@ export default {
                 employeeid: this.empid,
                 is_delete: 0
               })
-              return this.$axios.post('/api/UpdateDocflowElec' + '&data=' + data)
             })
             .then(() => {
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                typeofconstruction: this.selectedType
+              }) */
+              return this.$axios.put('/api/UpdateElectrical/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
-              return this.$axios.put('/api/UpdateElectrical/' + this.appid + '&data=' + data)
             })
         }
       } else {
@@ -6342,7 +6387,15 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                mechanicalid: this.appid,
+                txndate: year + '-' + month + '-' + day + ' ' + fulltime, // '2013-05-30 00:00:00',
+                remarks: whereabouts,
+                is_tag: isTag,
+                tagword: 'ELECINSPECTED',
+                employeeid: this.empid
+              }) */
+              return this.$axios.post('/api/UpdateDocflowMech', {
                 mechanicalid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' ' + fulltime, // '2013-05-30 00:00:00',
                 remarks: whereabouts,
@@ -6350,13 +6403,14 @@ export default {
                 tagword: 'ELECINSPECTED',
                 employeeid: this.empid
               })
-              return this.$axios.post('/api/UpdateDocflowMech' + '&data=' + data)
             })
             .then(() => {
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                typeofconstruction: this.selectedType
+              }) */
+              return this.$axios.put('/api/UpdateMechanical/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
-              return this.$axios.put('/api/UpdateMechanical/' + this.appid + '&data=' + data)
             })
         }
       } else {
@@ -6374,7 +6428,17 @@ export default {
           // let jsonize = json.parse(decrypted)
           const refpfid = decrypted
 
-          const data = JSON.stringify({
+          /* const data = JSON.stringify({
+            ref_progressflowid: refpfid,
+            bldgApplicationNo: this.appno,
+            timeIn: fulltime,
+            dateIn: fulldate,
+            inspector: employeename,
+            processby: empid,
+            remarks: str
+          }) */
+          /* return this.$axios.post('/api/SaveBuilding' + '&data=' + data) */
+          return this.$axios.post('/api/SaveBuilding', {
             ref_progressflowid: refpfid,
             bldgApplicationNo: this.appno,
             timeIn: fulltime,
@@ -6383,7 +6447,6 @@ export default {
             processby: empid,
             remarks: str
           })
-          return this.$axios.post('/api/SaveBuilding' + '&data=' + data)
         })
         .then((response) => {
           if (progressflow.includes('LINE AND GRADE')) {
@@ -6451,7 +6514,19 @@ export default {
         .then((response) => {
           const refpfid = response.data[0].ref_progressflowid
 
-          const data = JSON.stringify({
+          /* const data = JSON.stringify({
+            ref_progressflowid: refpfid,
+            occupancyid: this.appid,
+            accomplish: 0,
+            employeeid: this.employeeid,
+            datetimeStart: month + '/' + day + '/' + year,
+            datetimeEnd: month + '/' + day + '/' + year,
+            datetimeEncoded: month + '/' + day + '/' + year,
+            encodedBy: this.employeeid,
+            remarks: str,
+            inspector: this.employeeid
+          }) */
+          return this.$axios.post('/api/SaveOccupancy', {
             ref_progressflowid: refpfid,
             occupancyid: this.appid,
             accomplish: 0,
@@ -6463,7 +6538,6 @@ export default {
             remarks: str,
             inspector: this.employeeid
           })
-          return this.$axios.post('/api/SaveOccupancy' + '&data=' + data)
         })
         .then((response) => {
           if (progressflow.includes('LINE AND GRADE')) {
@@ -6527,7 +6601,17 @@ export default {
         })
     },
     async saveToDatabaseSign (fulltime, fulldate, employeename, empid, str) {
-      const signData = JSON.stringify({
+      /* const signData = JSON.stringify({
+        ref_progressflowid: 0,
+        signageid: this.appid,
+        findings: str,
+        datetimeStart: fulldate,
+        datetimeEnd: fulldate,
+        datetimeEncoded: fulldate,
+        encodedBy: employeename,
+        inspector: empid
+      }) */
+      await this.$axios.post('SaveSignage', {
         ref_progressflowid: 0,
         signageid: this.appid,
         findings: str,
@@ -6537,7 +6621,6 @@ export default {
         encodedBy: employeename,
         inspector: empid
       })
-      await this.$axios.post('SaveSignage' + '&data=' + signData)
         .then((response) => {
           this.savedSignage = 2
           this.savedSignageMsg = response.data
@@ -6548,7 +6631,15 @@ export default {
         })
     },
     async saveToDatabaseElec (fulltime, fulldate, empid) {
-      const elecData = JSON.stringify({
+      /* const elecData = JSON.stringify({
+        ref_progressflowid: 0,
+        electricalid: this.appid,
+        dateStart: fulldate,
+        dateEnd: fulldate,
+        inspector1: empid,
+        inspector2: empid
+      }) */
+      await this.$axios.post('SaveElectrical', {
         ref_progressflowid: 0,
         electricalid: this.appid,
         dateStart: fulldate,
@@ -6556,14 +6647,16 @@ export default {
         inspector1: empid,
         inspector2: empid
       })
-      await this.$axios.post('SaveElectrical' + '&data=' + elecData)
     },
     async saveToDatabaseElecFindings (str) {
-      const eFindData = JSON.stringify({
+      /* const eFindData = JSON.stringify({
+        electricalid: this.appid,
+        findings: str
+      }) */
+      await this.$axios.post('SaveElectricalFindings', {
         electricalid: this.appid,
         findings: str
       })
-      await this.$axios.post('SaveElectricalFindings' + '&data=' + eFindData)
         .then((response) => {
           this.savedElectrical = 2
           this.savedElectricalMsg = response.data
@@ -6574,21 +6667,30 @@ export default {
         })
     },
     async saveToDatabaseMech (fulldate, empid) {
-      const mechData = JSON.stringify({
+      /* const mechData = JSON.stringify({
+        ref_progressflowid: 0,
+        mechanicalid: this.appid,
+        dateStart: fulldate,
+        dateEnd: fulldate,
+        employeeid: empid
+      }) */
+      await this.$axios.post('SaveMechanical', {
         ref_progressflowid: 0,
         mechanicalid: this.appid,
         dateStart: fulldate,
         dateEnd: fulldate,
         employeeid: empid
       })
-      await this.$axios.post('SaveMechanical' + '&data=' + mechData)
     },
     async saveToDatabaseMechFindings (str) {
-      const mFindData = JSON.stringify({
+      /* const mFindData = JSON.stringify({
+        mechanicalid: this.appid,
+        findings: str
+      }) */
+      await this.$axios.post('SaveMechanicalFindings', {
         mechanicalid: this.appid,
         findings: str
       })
-      await this.$axios.post('SaveMechanicalFindings' + '&data=' + mFindData)
         .then((response) => {
           this.savedMechanical = 2
           this.savedMechanicalMsg = response.data

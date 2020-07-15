@@ -580,10 +580,13 @@ export default {
                   this.$q.sessionStorage.set('__' + l3s.Encrypt('bfp') + '_token', l3s.EncryptNetwork(true))
                 }
               }
-              const data = JSON.stringify({
+              /* const data = JSON.stringify({
+                is_online: 1
+              }) */
+              /* this.$axios.put('/api/setOnline' + '/' + (employeeid) + '&data=' + data) */
+              this.$axios.put('/api/setOnline' + '/' + (employeeid), {
                 is_online: 1
               })
-              this.$axios.put('/api/setOnline' + '/' + (employeeid) + '&data=' + data)
 
               this.$q.sessionStorage.remove('__' + l3s.Encrypt('employeename') + '_token')
               this.$q.sessionStorage.set('__' + l3s.Encrypt('employeename') + '_token', l3s.EncryptNetwork(fullname))
