@@ -103,13 +103,9 @@ module.exports = function (ctx) {
       port: 8080,
       open: false,
       proxy: {
-        // proxy all requests starting with /api to jsonplaceholder
         '/api': {
           target: 'http://localhost:27072/',
           changeOrigin: true
-          /* pathRewrite: {
-            '^/api': ''
-          } */
         }
       }
     },
@@ -159,7 +155,7 @@ module.exports = function (ctx) {
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#507f95',
-        theme_color: '#027be3',
+        theme_color: '#507f95', /* '#027be3' */
         start_url: 'https://iipsoi.now.sh',
         icons: [
           {
