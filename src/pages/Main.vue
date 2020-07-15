@@ -5132,12 +5132,7 @@ export default {
               } else {
                 nprogressflow = progressflow
               }
-              /* const data = JSON.stringify({
-                receivingid: this.appid,
-                datetransac: year + '-' + month + '-' + day + ' ' + fulltime + ':00',
-                employeeid: empid,
-                remarks: whereabouts1 + ' ' + nprogressflow + ' ' + whereabouts2
-              }) */
+
               return this.$axios.post('/api/UpdateDocflow', {
                 receivingid: this.appid,
                 datetransac: year + '-' + month + '-' + day + ' ' + fulltime + ':00',
@@ -5146,10 +5141,6 @@ export default {
               })
             })
             .then(() => {
-              /* const data = JSON.stringify({
-                typeofconstruction: this.selectedType
-              }) */
-              /* return this.$axios.put('/api/UpdateReceiving/' + this.appid + '&data=' + data) */
               return this.$axios.put('/api/UpdateReceiving/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
@@ -6444,7 +6435,7 @@ export default {
             timeIn: fulltime,
             dateIn: fulldate,
             inspector: employeename,
-            processby: empid,
+            processby: employeename,
             remarks: str
           })
         })

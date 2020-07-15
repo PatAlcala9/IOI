@@ -46,7 +46,7 @@
         <div class="col">
           <p class="para">
             <span class="para-title">Code Obfuscation. </span>
-            <span class="text"></span>
+            <span class="text">Obfuscation means to make something unclear. That exactly Code Obfuscation do, it makes the code unclear so that humans cannot understand it only computers. By re-arranging the code and converting some value into hexadecimal. The finish product looks nothing like the original code, so even the programmer cannot understand the code.</span>
           </p>
         </div>
 
@@ -102,6 +102,6 @@ export default {
   }
 
   .page {
-    height: 70rem;
+    height: 80rem;
   }
 </style>
