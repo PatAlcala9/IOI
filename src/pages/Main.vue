@@ -2539,11 +2539,8 @@ export default {
     logout () {
       const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
       const darkmode = this.$q.sessionStorage.has('__' + l3s.Encrypt('dark') + '_token')
-      /* const data = JSON.stringify({
-          is_online: 0
-       }) */
-      /* this.$axios.put('setOnline/' + (empid) + '&data=' + data) */
-      this.$axios.put('setOnline/' + (empid), {
+
+      this.$axios.put('/api/setOnline/' + (empid), {
         is_online: 0
       })
       this.$q.sessionStorage.clear()
@@ -5094,9 +5091,23 @@ export default {
         }
 
         if (this.$q.localStorage.has('__' + l3s.Encrypt('saveBuilding' + progressflow + 0) + '_token')) {
-          for (const i in progressflowtable) {
+          /* for (const i in progressflowtable) {
             str = progressflowtable[i].name
             await this.saveToDatabase(progressflow, fulltime, fulldate, employeename, empid, str, year, month, day, empid)
+          } */
+          if (progressflowtable.length > 1) {
+            let pftString = ''
+            str = progressflowtable[0].name + '\n'
+            await this.saveToDatabaseFirst(progressflow, fulltime, fulldate, employeename, empid, str)
+
+            for (let i = 0; i < progressflowtable.length - 1; i++) {
+              const j = i + 1
+              pftString = pftString + '> ' + progressflowtable[j].name + '\n'
+            }
+            await this.saveToDatabaseMultiple(progressflow, str + pftString)
+          } else {
+            str = progressflowtable[0].name
+            await this.saveToDatabase2(progressflow, fulltime, fulldate, employeename, empid, str)
           }
         }
 
@@ -6419,24 +6430,178 @@ export default {
           // let jsonize = json.parse(decrypted)
           const refpfid = decrypted
 
-          /* const data = JSON.stringify({
-            ref_progressflowid: refpfid,
-            bldgApplicationNo: this.appno,
-            timeIn: fulltime,
-            dateIn: fulldate,
-            inspector: employeename,
-            processby: empid,
-            remarks: str
-          }) */
-          /* return this.$axios.post('/api/SaveBuilding' + '&data=' + data) */
           return this.$axios.post('/api/SaveBuilding', {
             ref_progressflowid: refpfid,
             bldgApplicationNo: this.appno,
             timeIn: fulltime,
             dateIn: fulldate,
-            inspector: employeename,
             processby: employeename,
             remarks: str
+          })
+        })
+        .then((response) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedbldgLG = 2
+            this.savedbldgLGMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 2
+            this.savedbldgArchMsg = response.data
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedbldgStruct = 2
+            this.savedbldgStructMsg = response.data
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedbldgPlum = 2
+            this.savedbldgPlumMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 2
+            this.savedbldgArchMsg = response.data
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedbldgElec = 2
+            this.savedbldgElecMsg = response.data
+          } else if (progressflow.includes('MECH')) {
+            this.savedbldgMech = 2
+            this.savedbldgMechMsg = response.data
+          } else if (progressflow.includes('ZONING')) {
+            this.savedbldgZoning = 2
+            this.savedbldgZoningMsg = response.data
+          } else if (progressflow.includes('BFP')) {
+            this.savedbldgBFP = 2
+            this.savedbldgBFPMsg = response.data
+          }
+        })
+        .catch((err) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedbldgLG = 1
+            this.savedbldgLGMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 1
+            this.savedbldgArchMsg = err
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedbldgStruct = 1
+            this.savedbldgStructMsg = err
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedbldgPlum = 1
+            this.savedbldgPlumMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 1
+            this.savedbldgArchMsg = err
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedbldgElec = 1
+            this.savedbldgElecMsg = err
+          } else if (progressflow.includes('MECH')) {
+            this.savedbldgMech = 1
+            this.savedbldgMechMsg = err
+          } else if (progressflow.includes('ZONING')) {
+            this.savedbldgZoning = 1
+            this.savedbldgZoningMsg = err
+          } else if (progressflow.includes('BFP')) {
+            this.savedbldgBFP = 1
+            this.savedbldgBFPMsg = err
+          }
+        })
+    },
+    async saveToDatabase2 (progressflow, fulltime, fulldate, employeename, empid, str) {
+      await this.$axios.get('/api/GetProgressFlowID' + '/' + (progressflow))
+        .then((response) => {
+          const decrypted = response.data[0].ref_progressflowid
+          // let jsonize = json.parse(decrypted)
+          const refpfid = decrypted
+
+          return this.$axios.post('/api/SaveBuilding2', {
+            ref_progressflowid: refpfid,
+            bldgApplicationNo: this.appno,
+            timeIn: fulltime,
+            dateIn: fulldate,
+            processby: employeename,
+            action: '> ' + str
+          })
+        })
+        .then((response) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedbldgLG = 2
+            this.savedbldgLGMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 2
+            this.savedbldgArchMsg = response.data
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedbldgStruct = 2
+            this.savedbldgStructMsg = response.data
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedbldgPlum = 2
+            this.savedbldgPlumMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 2
+            this.savedbldgArchMsg = response.data
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedbldgElec = 2
+            this.savedbldgElecMsg = response.data
+          } else if (progressflow.includes('MECH')) {
+            this.savedbldgMech = 2
+            this.savedbldgMechMsg = response.data
+          } else if (progressflow.includes('ZONING')) {
+            this.savedbldgZoning = 2
+            this.savedbldgZoningMsg = response.data
+          } else if (progressflow.includes('BFP')) {
+            this.savedbldgBFP = 2
+            this.savedbldgBFPMsg = response.data
+          }
+        })
+        .catch((err) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedbldgLG = 1
+            this.savedbldgLGMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 1
+            this.savedbldgArchMsg = err
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedbldgStruct = 1
+            this.savedbldgStructMsg = err
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedbldgPlum = 1
+            this.savedbldgPlumMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedbldgArch = 1
+            this.savedbldgArchMsg = err
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedbldgElec = 1
+            this.savedbldgElecMsg = err
+          } else if (progressflow.includes('MECH')) {
+            this.savedbldgMech = 1
+            this.savedbldgMechMsg = err
+          } else if (progressflow.includes('ZONING')) {
+            this.savedbldgZoning = 1
+            this.savedbldgZoningMsg = err
+          } else if (progressflow.includes('BFP')) {
+            this.savedbldgBFP = 1
+            this.savedbldgBFPMsg = err
+          }
+        })
+    },
+    async saveToDatabaseFirst (progressflow, fulltime, fulldate, employeename, empid, str) {
+      await this.$axios.get('/api/GetProgressFlowID' + '/' + (progressflow))
+        .then((response) => {
+          const decrypted = response.data[0].ref_progressflowid
+          const refpfid = decrypted
+
+          return this.$axios.post('/api/SaveBuilding2', {
+            ref_progressflowid: refpfid,
+            bldgApplicationNo: this.appno,
+            timeIn: fulltime,
+            dateIn: fulldate,
+            processby: employeename,
+            action: '> ' + str
+          })
+        })
+    },
+    async saveToDatabaseMultiple (progressflow, str) {
+      await this.$axios.get('/api/GetProgressFlowID' + '/' + (progressflow))
+        .then((response) => {
+          const decrypted = response.data[0].ref_progressflowid
+          const refpfid = decrypted
+
+          return this.$axios.put('/api/UpdateBuilding/' + this.appno, {
+            ref_progressflowid: refpfid,
+            action: '> ' + str
           })
         })
         .then((response) => {

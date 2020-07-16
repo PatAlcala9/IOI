@@ -478,7 +478,6 @@ export default {
             break
           }
         }
-        // console.log('fullname: ' + fullname)
 
         if (fullname === undefined) {
           this.$q.loading.hide()
@@ -580,10 +579,7 @@ export default {
                   this.$q.sessionStorage.set('__' + l3s.Encrypt('bfp') + '_token', l3s.EncryptNetwork(true))
                 }
               }
-              /* const data = JSON.stringify({
-                is_online: 1
-              }) */
-              /* this.$axios.put('/api/setOnline' + '/' + (employeeid) + '&data=' + data) */
+
               this.$axios.put('/api/setOnline' + '/' + (employeeid), {
                 is_online: 1
               })

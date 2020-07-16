@@ -70,7 +70,7 @@
                   <q-tooltip content-class="bg-black" content-style="font-size: 16px">Return to Main Documentation Page</q-tooltip>
                 </q-btn>-->
                 <q-btn flat rounded class="button4 doc-button" size="lg" color="white" label="Back" @click="goBack">
-                  <q-tooltip content-class="bg-black" content-style="font-size: 16px">Return to Main Documentation Page</q-tooltip>
+                  <q-tooltip content-class="bg-black" content-style="font-size: 16px">Return to the Application</q-tooltip>
                 </q-btn>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default {
       this.$router.push('/info/tech', () => {})
     },
     goBack () {
-      this.$router.push('/docs', () => {})
+      this.$router.push('/', () => {})
     },
     nextPage () {
       this.$router.push('/docs/3', () => {})

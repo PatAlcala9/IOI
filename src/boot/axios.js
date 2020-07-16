@@ -11,14 +11,6 @@ export default async ({ Vue }) => {
   const key = Encrypt(nDay + '-' + nMonth + '-' + year)
 
   /* **Server */
-  /* const instance = axios.create({
-    baseURL: 'https://cors-anywhere.herokuapp.com/122.2.27.43/index3.php?url=http://192.168.78.54/IOI/api/',
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest'
-    }
-  }) */
-
-  /* **New Server */
   const instance = axios.create({
     baseURL: 'https://ioi-server.herokuapp.com/http://gateway.davaocity.gov.ph/ioi/',
     headers: {
