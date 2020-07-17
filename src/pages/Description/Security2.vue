@@ -39,7 +39,7 @@
         <div class="col">
           <p class="para">
             <span class="para-title">Anti-Debugging </span>
-            <span class="text">This is the application first line of defense, it prevent hackers from reading the flow of the code by blocking the debugging feature of the computer browser. The debugging tool is only for computer browser, this feature is not built on a mobile browser. You can try it be pressing F12 on your keyboard. </span>
+            <span class="text">This is the application's first line of defense, it prevent hackers from reading the flow of the code by blocking the debugging feature of the computer browser. The debugging tool is only for computer browser, this feature is not built on a mobile browser. You can try it be pressing F12 on your keyboard. </span>
             <span class="para-title">Caution: your browser may freeze or crash.</span>
           </p>
         </div>
