@@ -167,7 +167,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occlgdata, 'LINE AND GRADE')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occlgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowolg" persistent transition-show="scale" transition-hide="scale">
@@ -245,7 +245,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occarchdata, 'ARCHITECTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occarchdata, 'ARCHITECTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowoar" persistent transition-show="scale" transition-hide="scale">
@@ -323,7 +323,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occstructdata, 'STRUCTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occstructdata, 'STRUCTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowost" persistent transition-show="scale" transition-hide="scale">
@@ -401,7 +401,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occplumdata, 'SANITARY/PLUMBING')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occplumdata, 'SANITARY/PLUMBING')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowopl" persistent transition-show="scale" transition-hide="scale">
@@ -479,7 +479,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occelecdata, 'ELECTRICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occelecdata, 'ELECTRICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowoel" persistent transition-show="scale" transition-hide="scale">
@@ -557,7 +557,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occmechdata, 'MECHANICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occmechdata, 'MECHANICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowome" persistent transition-show="scale" transition-hide="scale">
@@ -1319,7 +1319,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occlgdata, 'LINE AND GRADE')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occlgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowolg" persistent transition-show="scale" transition-hide="scale">
@@ -1397,7 +1397,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occarchdata, 'ARCHITECTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occarchdata, 'ARCHITECTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowoar" persistent transition-show="scale" transition-hide="scale">
@@ -1475,7 +1475,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occstructdata, 'STRUCTURAL')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occstructdata, 'STRUCTURAL')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowost" persistent transition-show="scale" transition-hide="scale">
@@ -1553,7 +1553,7 @@
             </q-tr>
           </template>
         </q-table>
-        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occplumdata, 'SANITARY/PLUMBING')" />
+        <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occplumdata, 'SANITARY/PLUMBING')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
         <q-dialog v-model="deleterowopl" persistent transition-show="scale" transition-hide="scale">
@@ -1631,7 +1631,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occelecdata, 'ELECTRICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occelecdata, 'ELECTRICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowoel" persistent transition-show="scale" transition-hide="scale">
@@ -1709,7 +1709,7 @@
             </q-tr>
           </template>
       </q-table>
-      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy(occmechdata, 'MECHANICAL')" />
+      <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occmechdata, 'MECHANICAL')" />
       <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
 
       <q-dialog v-model="deleterowome" persistent transition-show="scale" transition-hide="scale">
@@ -2530,15 +2530,24 @@ export default {
       this.selectedType = value
     },
     checkLogin () {
-      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('id') + '_token') === true) {
+      if (this.$q.localStorage.has('__' + l3s.Encrypt('id') + '_token') === true) {
+        this.$router.push('main', () => {})
+      } else {
+        this.$router.push('/', () => {})
+      }
+    },
+    async checkAuth () {
+      const authTitle = await l3s.Encrypt('auth')
+      if (this.$q.localStorage.has('__' + authTitle + '_auth') === true) {
         this.$router.push('main', () => {})
       } else {
         this.$router.push('/', () => {})
       }
     },
     logout () {
-      const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+      const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
       const darkmode = this.$q.sessionStorage.has('__' + l3s.Encrypt('dark') + '_token')
+      const authTitle = l3s.Encrypt('auth')
 
       this.$axios.put('/api/setOnline/' + (empid), {
         is_online: 0
@@ -2547,6 +2556,9 @@ export default {
       if (darkmode) {
         this.$q.sessionStorage.set('__' + l3s.Encrypt('dark') + '_token', l3s.EncryptNetwork(true))
       }
+
+      this.$q.localStorage.remove('__' + authTitle + '_auth')
+      this.$q.localStorage.remove('__' + l3s.Encrypt('id') + '_token')
       this.$router.push('/', () => {})
     },
     async loadData () {
@@ -4241,7 +4253,7 @@ export default {
       const fulldate = month + '/' + day + '/' + year
       const employeenameEncrypted = this.$q.sessionStorage.getItem('__' + l3s.Encrypt('employeename') + '_token')
       const employeename = l3s.DecryptNetwork(employeenameEncrypted)
-      const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+      const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
       this.isDataEmpty = false
       const progressflow = this.bldglgdata
@@ -4548,7 +4560,7 @@ export default {
       const fulldate = month + '/' + day + '/' + year
       const employeenameEncrypted = this.$q.sessionStorage.getItem('__' + l3s.Encrypt('employeename') + '_token')
       const employeename = l3s.DecryptNetwork(employeenameEncrypted)
-      const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+      const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
       this.isDataEmpty = false
       const progressflow = this.bldgarchdata
@@ -4798,7 +4810,7 @@ export default {
         const fulldate = month + '/' + day + '/' + year
         const employeenameEncrypted = this.$q.sessionStorage.getItem('__' + l3s.Encrypt('employeename') + '_token')
         const employeename = l3s.DecryptNetwork(employeenameEncrypted)
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         this.isDataEmpty = false
         const str = ''
@@ -5052,7 +5064,7 @@ export default {
         const fulldate = month + '/' + day + '/' + year
         const employeenameEncrypted = this.$q.sessionStorage.getItem('__' + l3s.Encrypt('employeename') + '_token')
         const employeename = l3s.DecryptNetwork(employeenameEncrypted)
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         this.isDataEmpty = false
         let str = ''
@@ -5185,7 +5197,7 @@ export default {
         const year = currentDate.getFullYear()
         const fulltime = hour + ':' + minutes
         const fulldate = month + '/' + day + '/' + year
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         const str = ''
 
@@ -5447,7 +5459,7 @@ export default {
         const fulldate = month + '/' + day + '/' + year
         const employeenameEncrypted = this.$q.sessionStorage.getItem('__' + l3s.Encrypt('employeename') + '_token')
         const employeename = l3s.DecryptNetwork(employeenameEncrypted)
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         let str = ''
 
@@ -5487,8 +5499,23 @@ export default {
         }
 
         if (this.$q.localStorage.has('__' + l3s.Encrypt('saveOccupancy' + progressflow + 0) + '_token')) {
-          for (const i in progressflowtable) {
+          /* for (const i in progressflowtable) {
             str = progressflowtable[i].name
+            await this.saveToDatabaseOcc(progressflow, fulltime, fulldate, employeename, empid, str, year, month, day)
+          } */
+
+          if (progressflowtable.length > 1) {
+            let pftString = ''
+            str = progressflowtable[0].name
+            await this.saveToDatabaseOccFirst(progressflow, fulltime, fulldate, employeename, empid, str, year, month, day)
+
+            for (let i = 0; i < progressflowtable.length - 1; i++) {
+              const j = i + 1
+              pftString = pftString + '/' + progressflowtable[j].name
+            }
+            await this.saveToDatabaseOccMulti(progressflow, str + pftString)
+          } else {
+            str = progressflowtable[0].name
             await this.saveToDatabaseOcc(progressflow, fulltime, fulldate, employeename, empid, str, year, month, day)
           }
         }
@@ -5549,10 +5576,6 @@ export default {
               })
             })
             .then(() => {
-              /* const data = JSON.stringify({
-                typeofconstruction: this.selectedType
-              }) */
-              /* return this.$axios.put('/api/UpdateOccupancy/' + this.appid + '&data=' + data) */
               return this.$axios.put('/api/UpdateOccupancy/' + this.appid, {
                 typeofconstruction: this.selectedType
               })
@@ -5581,7 +5604,7 @@ export default {
         const fulltime = hour + ':' + minutes
         // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         this.$axios.get('https://cors-anywhere.herokuapp.com/122.2.27.43/index.php?url=http://192.168.78.54/IOI/api/' + l3s.EncryptNetwork('saveSignage1') + '/' + l3s.EncryptNetwork(this.appid) + '/' + l3s.Encrypt('2') + '/' + l3s.Encrypt('3') + '/' + l3s.Encrypt('4') + '/' + l3s.Encrypt('5'))
           .then((response) => {
@@ -5782,7 +5805,7 @@ export default {
         const fulltime = hour + ':' + minutes
         // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         let str = ''
 
@@ -5866,7 +5889,7 @@ export default {
         const fulltime = hour + ':' + minutes
         // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         this.$axios.get('https://cors-anywhere.herokuapp.com/122.2.27.43/index.php?url=http://192.168.78.54/IOI/api/' + l3s.EncryptNetwork('getProgressFlowID') + '/' + l3s.EncryptNetwork('ELECTRICAL'))
           .then((response) => {
@@ -6059,7 +6082,7 @@ export default {
         const fulltime = hour + ':' + minutes
         // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         let str = ''
 
@@ -6150,7 +6173,7 @@ export default {
         const fulltime = hour + ':' + minutes
         // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         this.$axios.get('https://cors-anywhere.herokuapp.com/122.2.27.43/index.php?url=http://192.168.78.54/IOI/api/' + l3s.EncryptNetwork('getProgressFlowID') + '/' + l3s.EncryptNetwork('MECHANICAL'))
           .then((response) => {
@@ -6351,7 +6374,7 @@ export default {
         const year = currentDate.getFullYear()
         const fulltime = hour + ':' + minutes
         const fulldate = year + '-' + month + '-' + day
-        const empid = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
+        const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
         let str = ''
 
@@ -6670,18 +6693,6 @@ export default {
         .then((response) => {
           const refpfid = response.data[0].ref_progressflowid
 
-          /* const data = JSON.stringify({
-            ref_progressflowid: refpfid,
-            occupancyid: this.appid,
-            accomplish: 0,
-            employeeid: this.employeeid,
-            datetimeStart: month + '/' + day + '/' + year,
-            datetimeEnd: month + '/' + day + '/' + year,
-            datetimeEncoded: month + '/' + day + '/' + year,
-            encodedBy: this.employeeid,
-            remarks: str,
-            inspector: this.employeeid
-          }) */
           return this.$axios.post('/api/SaveOccupancy', {
             ref_progressflowid: refpfid,
             occupancyid: this.appid,
@@ -6693,6 +6704,96 @@ export default {
             encodedBy: this.employeeid,
             remarks: str,
             inspector: this.employeeid
+          })
+        })
+        .then((response) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedoccLG = 2
+            this.savedoccLGMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedoccArch = 2
+            this.savedoccArchMsg = response.data
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedoccStruct = 2
+            this.savedoccStructMsg = response.data
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedoccPlum = 2
+            this.savedoccPlumMsg = response.data
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedoccArch = 2
+            this.savedoccArchMsg = response.data
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedoccElec = 2
+            this.savedoccElecMsg = response.data
+          } else if (progressflow.includes('MECH')) {
+            this.savedoccMech = 2
+            this.savedoccMechMsg = response.data
+          } else if (progressflow.includes('ZONING')) {
+            this.savedoccZoning = 2
+            this.savedoccZoningMsg = response.data
+          } else if (progressflow.includes('BFP')) {
+            this.savedoccBFP = 2
+            this.savedoccBFPMsg = response.data
+          }
+        })
+        .catch((err) => {
+          if (progressflow.includes('LINE AND GRADE')) {
+            this.savedoccLG = 1
+            this.savedoccLGMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedoccArch = 1
+            this.savedoccArchMsg = err
+          } else if (progressflow.includes('STRUCTURAL')) {
+            this.savedoccStruct = 1
+            this.savedoccStructMsg = err
+          } else if (progressflow.includes('PLUMBING')) {
+            this.savedoccPlum = 1
+            this.savedoccPlumMsg = err
+          } else if (progressflow.includes('ARCHI')) {
+            this.savedoccArch = 1
+            this.savedoccArchMsg = err
+          } else if (progressflow.includes('ELECTR')) {
+            this.savedoccElec = 1
+            this.savedoccElecMsg = err
+          } else if (progressflow.includes('MECH')) {
+            this.savedoccMech = 1
+            this.savedoccMechMsg = err
+          } else if (progressflow.includes('ZONING')) {
+            this.savedoccZoning = 1
+            this.savedoccZoningMsg = err
+          } else if (progressflow.includes('BFP')) {
+            this.savedoccBFP = 1
+            this.savedoccBFPMsg = err
+          }
+        })
+    },
+    async saveToDatabaseOccFirst (progressflow, fulltime, fulldate, employeename, empid, str, year, month, day) {
+      await this.$axios.get('/api/GetProgressFlowID' + '/' + (progressflow))
+        .then((response) => {
+          const refpfid = response.data[0].ref_progressflowid
+
+          return this.$axios.post('/api/SaveOccupancy', {
+            ref_progressflowid: refpfid,
+            occupancyid: this.appid,
+            accomplish: 0,
+            employeeid: this.employeeid,
+            datetimeStart: month + '/' + day + '/' + year,
+            datetimeEnd: month + '/' + day + '/' + year,
+            datetimeEncoded: month + '/' + day + '/' + year,
+            encodedBy: this.employeeid,
+            remarks: str,
+            inspector: this.employeeid
+          })
+        })
+    },
+    async saveToDatabaseOccMulti (progressflow, str) {
+      await this.$axios.get('/api/GetProgressFlowID' + '/' + (progressflow))
+        .then((response) => {
+          const refpfid = response.data[0].ref_progressflowid
+
+          return this.$axios.put('/api/SaveOccupancyMulti/' + this.appid, {
+            ref_progressflowid: refpfid,
+            remarks: str
           })
         })
         .then((response) => {
@@ -7235,7 +7336,9 @@ export default {
   created () {
     this.intro()
       .then(this.checkDark())
-      .then(this.checkLogin())
+  },
+  mounted () {
+    this.checkAuth()
   }
 }
 </script>

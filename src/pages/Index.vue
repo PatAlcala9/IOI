@@ -130,7 +130,7 @@ export default {
       tl.from('footer', { scale: 0, ease: Elastic.easeOut }, '-=0.2')
     },
     checkLogin () {
-      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('id') + '_token') === true) {
+      if (this.$q.localStorage.has('__' + l3s.Encrypt('id') + '_token') === true) {
         this.$router.push('main', () => {})
       } else {
         this.$router.push('/', () => {})
@@ -160,6 +160,20 @@ export default {
     },
     camera () {
       this.$router.push('camera', () => {})
+    },
+    async storeAuth (username, password) {
+      const auth = await l3s.EncryptNetwork(username + password + 'auth')
+      const authTitle = await l3s.Encrypt('auth')
+      this.$q.localStorage.remove('__' + authTitle + '_auth')
+      this.$q.localStorage.set('__' + authTitle + '_auth', auth)
+    },
+    async checkAuth () {
+      const authTitle = await l3s.Encrypt('auth')
+      if (this.$q.localStorage.has('__' + authTitle + '_auth') === true) {
+        this.$router.push('main', () => {})
+      } else {
+        this.$router.push('/', () => {})
+      }
     },
     async getEmployee () {
       const curDate = new Date()
@@ -253,8 +267,8 @@ export default {
                             const isonline = jsonize[0].is_online
 
                             if (isonline === 0) {
-                              this.$q.sessionStorage.remove('__' + l3s.Encrypt('id') + '_token')
-                              this.$q.sessionStorage.set('__' + l3s.Encrypt('id') + '_token', l3s.EncryptNetwork(this.employeeid))
+                              this.$q.localStorage.remove('__' + l3s.Encrypt('id') + '_token')
+                              this.$q.localStorage.set('__' + l3s.Encrypt('id') + '_token', l3s.EncryptNetwork(this.employeeid))
 
                               this.$axios.get('/api/' + l3s.EncryptNetwork('getAllAccess') + '/' + (this.employeeid))
                                 .then((response) => {
@@ -412,7 +426,7 @@ export default {
                     background: color
                   })
                   this.password = ''
-                  sessionStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
+                  this.$q.localStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
                 }
               })
               .catch(() => {
@@ -430,7 +444,7 @@ export default {
                   background: color
                 })
                 this.checkConnected()
-                sessionStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
+                this.$q.localStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
               })
           } else {
             this.$q.loading.hide()
@@ -446,7 +460,7 @@ export default {
               title: 'Username does not exist',
               background: color
             })
-            sessionStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
+            this.$q.localStorage.removeItem('__' + l3s.Encrypt('id') + '_token')
           }
         })
         .catch(() => {
@@ -517,8 +531,9 @@ export default {
             return
           }
 
-          this.$q.sessionStorage.remove('__' + l3s.Encrypt('id') + '_token')
-          this.$q.sessionStorage.set('__' + l3s.Encrypt('id') + '_token', l3s.EncryptNetwork(employeeid))
+          this.$q.localStorage.remove('__' + l3s.Encrypt('id') + '_token')
+          this.$q.localStorage.set('__' + l3s.Encrypt('id') + '_token', l3s.EncryptNetwork(employeeid))
+          this.storeAuth(uname, pword)
 
           this.$axios.get('/api/GetAllAccess' + '/' + (employeeid))
             .then((response) => {
@@ -966,9 +981,7 @@ export default {
   },
   created () {
     this.init()
-      .then(this.checkLogin())
       .then(this.checkDark())
-
     // window.addEventListener('beforeunload', () => {
     //   event.returnValue = `Are you sure you want to leave?`
     // })
@@ -989,6 +1002,7 @@ export default {
   mounted () {
     this.intro()
       .then(this.getEmployee())
+      .then(this.checkAuth())
     // .then(this.getAllBuilding())
     // .then(this.getAllDocflow())
       .then(this.animate())
