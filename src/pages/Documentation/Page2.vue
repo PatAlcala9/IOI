@@ -82,15 +82,14 @@
 
 <script>
 export default {
-  // name: 'PageName',
   data () {
     return {
       screenWidth: null
     }
   },
   created () {
-    this.init()
-      .then(this.checkUnit())
+    /* this.init()
+      .then(this.checkUnit()) */
   },
   mounted () {
     this.screenListener()

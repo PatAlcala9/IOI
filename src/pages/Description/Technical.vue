@@ -35,6 +35,10 @@
             <q-tooltip content-class="bg-black" content-style="font-size: 14px">Webpack</q-tooltip>
           </a>
           <a>
+            <img class="logo" src="../../assets/logos/workbox-1.svg" alt="Workbox"/>
+            <q-tooltip content-class="bg-black" content-style="font-size: 14px">Workbox</q-tooltip>
+          </a>
+          <a>
             <img class="logo" src="../../assets/logos/pwa-logo.svg" alt="PWA"/>
             <q-tooltip content-class="bg-black" content-style="font-size: 14px">PWA</q-tooltip>
           </a>

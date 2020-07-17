@@ -2626,6 +2626,7 @@ export default {
                         const occupancytype = decrypted.occupancyType
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
+                        this.saveInfo()
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -2725,6 +2726,7 @@ export default {
                         this.typeoruse = occupancy + ' - ' + occupancytype
 
                         this.loadTables()
+                        this.saveInfo()
                       })
                   } else {
                     this.$q.loading.hide()
@@ -2813,6 +2815,7 @@ export default {
                         const occupancytype = response.data[0].occupancyoruse
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
+                        this.saveInfo()
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -2917,6 +2920,7 @@ export default {
                         const occupancytype = response.data[0].signType
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
+                        this.saveInfo()
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -3021,6 +3025,7 @@ export default {
                         const occupancy = response.data[0].typeofoccupancy
                         this.typeoruse = occupancy
                         this.loadTables()
+                        this.saveInfo()
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -3111,6 +3116,46 @@ export default {
       this.$q.sessionStorage.set('__' + l3s.Encrypt('dateStart') + '_token', l3s.EncryptNetwork(fulldate))
       this.$q.sessionStorage.set('__' + l3s.Encrypt('dateStartSignage') + '_token', l3s.EncryptNetwork(fulldateSignage))
       this.$q.sessionStorage.set('__' + l3s.Encrypt('dateStart2') + '_token', l3s.EncryptNetwork(fulldate2))
+    },
+    saveInfo () {
+      if (this.appno !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_appno') + '_token', l3s.EncryptNetwork(this.appno))
+      }
+      if (this.name !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_name') + '_token', l3s.EncryptNetwork(this.name))
+      }
+      if (this.address !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_address') + '_token', l3s.EncryptNetwork(this.address))
+      }
+      if (this.location !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_location') + '_token', l3s.EncryptNetwork(this.location))
+      }
+      if (this.scope !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_scope') + '_token', l3s.EncryptNetwork(this.scope))
+      }
+      if (this.typeoruse !== '') {
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('info_typeoruse') + '_token', l3s.EncryptNetwork(this.typeoruse))
+      }
+    },
+    fetchInfo () {
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_appno') + '_token') === true) {
+        this.appno = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_appno') + '_token'))
+      }
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_name') + '_token') === true) {
+        this.name = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_name') + '_token'))
+      }
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_address') + '_token') === true) {
+        this.address = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_address') + '_token'))
+      }
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_location') + '_token') === true) {
+        this.location = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_location') + '_token'))
+      }
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_scope') + '_token') === true) {
+        this.scope = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_scope') + '_token'))
+      }
+      if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_typeoruse') + '_token') === true) {
+        this.typeoruse = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_typeoruse') + '_token'))
+      }
     },
     clearData () {
       this.appid = 0
@@ -7338,8 +7383,19 @@ export default {
       .then(this.checkDark())
   },
   mounted () {
-    this.checkAuth()
+    this.intro()
+      .then(this.checkAuth())
+      .then(this.fetchInfo())
   }
+  /* computed: {
+    if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_appno')) === true) {
+      this.appno = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_appno')))
+      console.log('appno: ' + this.appno)
+    }
+  } */
+  /* beforeDestroy () {
+    window.removeEventListener('unload', this.fetchInfo())
+  } */
 }
 </script>
 
