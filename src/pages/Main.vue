@@ -2563,7 +2563,9 @@ export default {
     },
     async loadData () {
       this.$q.loading.show({
-        message: 'Fetching Data'
+        message: 'Fetching Data',
+        spinnerSize: 120,
+        backgroundColor: '#507f95'
       })
 
       if (this.appno.length === 9) { // Building
