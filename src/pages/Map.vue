@@ -1,6 +1,10 @@
 <template>
   <q-page padding class="page">
-    <h4>OCBO Map</h4>
+    <div class="fit row no-wrap justify-between  content-start">
+      <q-btn flat rounded class="button4 doc-button" size="lg" color="white" @click="goBack">Back</q-btn>
+      <h4>OCBO Map</h4>
+    </div>
+
     <imap></imap>
   </q-page>
 </template>
@@ -23,6 +27,10 @@ export default {
         }
       })
     } */
+    goBack () {
+      this.$router.push('/main', () => {})
+      location.reload(true)
+    }
   }
 }
 </script>
@@ -41,22 +49,6 @@ export default {
     min-width: 100%
     min-height: 100%
     position: relative
-
-  /*
-    .page::before
-      background-image: url("../assets/bg.svg")
-      background-color: lightslategray
-      background-blend-mode: multiply
-      background-size: cover
-      content: ""
-      display: block
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      z-index: -2
-      opacity: 0.9*/
 
   h4
     margin: 0.1em
