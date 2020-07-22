@@ -16,7 +16,7 @@
       <transition appear enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
       <q-btn v-if="appno !== ''" round unelevated class="searchcircle" color="primary" @click="loadData"><q-icon name="search"/></q-btn>
       </transition>
-      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="logout"/>
+      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="openImages"/>
     </div>
     <div><br/></div>
     <div class="details">
@@ -2310,23 +2310,15 @@ import Swal from 'sweetalert2'
 const l3s = require('../assets/js/L3S')
 const iips = require('../assets/js/functions')
 const json = require('zipson')
+
+//* *Google Map */
 // const googleMapsClient = require('@google/maps').createClient({
 //   key: 'AIzaSyCELqGbuiRTNUSJ5oYMuPo040X4WJggEzk',
 //   Promise: Promise
 // })
 
-// import { Icon } from 'leaflet'
-// import 'leaflet/dist/leaflet.css'
-
-// import { OpenStreetMapProvider } from 'leaflet-geosearch'
-// import VGeosearch from 'vue2-leaflet-geosearch'
-
-// const chai = require('chai')
-// const expect = chai.expect
-
 //* *Import of Components */
 import ilabel from 'components/i-label'
-/* import mapa from 'components/map' */
 
 export default {
   name: 'Main',
@@ -2488,7 +2480,9 @@ export default {
       savedMechanical: 0,
       savedMechanicalMsg: null,
 
-      selectedType: null
+      selectedType: 'Please Select a Type',
+      images: [],
+      imagesUnique: []
     }
   },
   computed: {},
@@ -2522,9 +2516,13 @@ export default {
         this.dark = false
       }
     },
-    gotoCamera () {
+    async gotoCamera () {
       // this.$router.push('camera', () => {})
-      document.getElementById('camera').click()
+      const camera = await document.getElementById('camera')
+      camera.click()
+      camera.addEventListener('change', () => {
+        this.saveImages(camera.files[0])
+      })
     },
     setType (value) {
       this.selectedType = value
@@ -2616,6 +2614,40 @@ export default {
                       .then((response) => {
                         const decrypted = response.data[0]
                         // let jsonize = JSON.parse(decrypted)
+                        const fname = decrypted.firstName
+                        const mname = decrypted.middleInitial
+                        const lname = decrypted.lastName
+                        const ffname = iips.fullName(fname, mname, lname, null, null, null)
+                        this.name = ffname
+                        this.address = decrypted.address
+                        this.location = decrypted.locationofconstruction
+                        this.scope = decrypted.workscope
+                        const occupancy = decrypted.occupancy
+                        const occupancytype = decrypted.occupancyType
+                        this.typeoruse = occupancy + ' - ' + occupancytype
+                        this.loadTables()
+                        this.saveInfo()
+                      })
+                      .catch((err) => {
+                        this.$q.loading.hide()
+                        if (err.message === 'Network Error') {
+                          Swal.fire({
+                            icon: 'error',
+                            title: 'Unable to Search Building',
+                            text: 'No Connection on Server'
+                          })
+                        } else {
+                          Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: err.message
+                          })
+                        }
+                      })
+                  } else if (remarks.includes('INSPECTED')) {
+                    this.$axios.get('/api/getCustomerReceiving' + '/' + (this.appid))
+                      .then((response) => {
+                        const decrypted = response.data[0]
                         const fname = decrypted.firstName
                         const mname = decrypted.middleInitial
                         const lname = decrypted.lastName
@@ -4280,6 +4312,28 @@ export default {
           text: 'No Data is Registered'
         })
       }
+    },
+    refetchData () {
+      const refProgressflowList = []
+      const actionList = []
+      let actionSplit
+
+      this.$axios.get('/api/GetProgressFlow/' + this.appno)
+        .then((response) => {
+          for (let i = 0; i < response.data.length; i++) {
+            // eslint-disable-next-line camelcase
+            const ref_progressflowid = response.data[i].ref_progressflowid
+            const action = response.data[i].action
+
+            refProgressflowList.push(ref_progressflowid)
+            actionList.push(action)
+            actionSplit = actionList[i].split('\n')
+            const replaced = actionSplit.toString().replace('>', '')
+            console.log('actionSplit: ' + replaced)
+          }
+          /* console.log(refProgressflowList)
+          console.log(actionList) */
+        })
     },
     saveMessage (progressflow) {
       // if (this.okSaved === true) {
@@ -7378,7 +7432,17 @@ export default {
         }
       }
     },
-    checkPage () {}
+    checkPage () {},
+    async saveImages (image) {
+      /* const camera = await document.getElementById('camera').files[0] */
+      this.images.push(image)
+      this.imagesUnique = [...new Set(this.images)]
+    },
+    openImages () {
+      /* const camera = document.getElementById('camera').files
+      console.log(camera) */
+      console.log(this.imagesUnique)
+    }
   },
   created () {
     this.intro()
@@ -7388,16 +7452,19 @@ export default {
     this.intro()
       .then(this.checkAuth())
       .then(this.fetchInfo())
-  }
+      /* .then(location.reload(true)) */
+  },
   /* computed: {
     if (this.$q.sessionStorage.has('__' + l3s.Encrypt('info_appno')) === true) {
       this.appno = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('info_appno')))
       console.log('appno: ' + this.appno)
     }
   } */
-  /* beforeDestroy () {
-    window.removeEventListener('unload', this.fetchInfo())
-  } */
+  beforeDestroy () {
+    /* window.removeEventListener('unload', this.fetchInfo()) */
+    const camera = document.getElementById('camera')
+    camera.removeEventListener('change')
+  }
 }
 </script>
 
