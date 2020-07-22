@@ -16,7 +16,7 @@
       <transition appear enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
       <q-btn v-if="appno !== ''" round unelevated class="searchcircle" color="primary" @click="loadData"><q-icon name="search"/></q-btn>
       </transition>
-      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="openImages"/>
+      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="logout"/>
     </div>
     <div><br/></div>
     <div class="details">

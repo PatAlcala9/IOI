@@ -183,8 +183,8 @@ module.exports = function (ctx) {
             sizes: '512x512',
             type: 'image/png'
           }
-        ]
-        /* metaVariables: {
+        ],
+        metaVariables: {
           appleMobileWebAppCapable: 'yes',
           appleMobileWebAppStatusBarStyle: 'default',
           appleTouchIcon120: 'icons/apple-icon-120x120.png',
@@ -194,7 +194,7 @@ module.exports = function (ctx) {
           appleSafariPinnedTab: 'icons/safari-pinned-tab.svg',
           msapplicationTileImage: 'icons/ms-icon-144x144.png',
           msapplicationTileColor: '#000000'
-        } */
+        }
       }
     },
 

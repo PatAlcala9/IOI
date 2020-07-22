@@ -27,7 +27,7 @@
     "zipson": "^0.2.11"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.5",
+    "@quasar/app": "^2.0.6",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
@@ -41,11 +41,11 @@
     "workbox-webpack-plugin": "^5.0.0"
   },
   "browserslist": [
-    "last 5 Chrome versions",
-    "last 5 Safari versions",
-    "last 5 ChromeAndroid versions",
-    "last 5 iOS versions",
-    "last 4 Opera versions"
+    "last 8 Chrome versions",
+    "last 8 Safari versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 iOS versions",
+    "last 5 Opera versions"
   ],
   "engines": {
     "node": ">= 10.18.1",
