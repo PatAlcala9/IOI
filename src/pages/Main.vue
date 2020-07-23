@@ -7442,6 +7442,9 @@ export default {
       /* const camera = document.getElementById('camera').files
       console.log(camera) */
       console.log(this.imagesUnique)
+    },
+    sample () {
+      this.$router.push('/images', () => {})
     }
   },
   created () {
