@@ -21,14 +21,14 @@ export default async ({ Vue }) => {
   })
 
   /* **Local */
-  /* const instance = axios.create({
-    baseurl: '',
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-      'X-Secure-Connection': 'OCBO',
-      'X-Data-Lock': key
-    }
-  }) */
+  // const instance = axios.create({
+  //   baseurl: '',
+  //   headers: {
+  //     'X-Requested-With': 'XMLHttpRequest',
+  //     'X-Secure-Connection': 'OCBO',
+  //     'X-Data-Lock': key
+  //   }
+  // })
 
   instance.defaults.headers.post['Content-Type'] = 'application/json'
 

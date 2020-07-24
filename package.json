@@ -9,12 +9,12 @@
     "dev": "quasar dev -m spa -p 2234",
     "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
-    "deploy": "now --prod"
+    "deploy": "now --prod",
+    "github": "push-dir --dir=dist/pwa --remote=gh-pages --branch=master"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.4.1",
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
-    "@quasar/extras": "^1.8.2",
+    "@quasar/extras": "^1.9.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "cryptr": "^4.0.2",
@@ -22,9 +22,9 @@
     "hashr": "^1.0.2",
     "mapbox-gl": "^1.11.0",
     "md5": "^2.2.1",
-    "quasar": "^1.12.11",
+    "move-file": "^2.0.0",
+    "quasar": "^1.12.13",
     "sweetalert2": "^9.15.2",
-    "vue-glide-js": "^1.3.14",
     "zipson": "^0.2.11"
   },
   "devDependencies": {
@@ -38,6 +38,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
+    "push-dir": "^0.4.1",
     "webpack-obfuscator": "^1.6.0",
     "workbox-webpack-plugin": "^5.0.0"
   },

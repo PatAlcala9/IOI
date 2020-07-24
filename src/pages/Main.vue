@@ -16,7 +16,7 @@
       <transition appear enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
       <q-btn v-if="appno !== ''" round unelevated class="searchcircle" color="primary" @click="loadData"><q-icon name="search"/></q-btn>
       </transition>
-      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="logout"/>
+      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="openImages"/>
     </div>
     <div><br/></div>
     <div class="details">
@@ -7434,14 +7434,34 @@ export default {
     },
     checkPage () {},
     async saveImages (image) {
-      /* const camera = await document.getElementById('camera').files[0] */
       this.images.push(image)
       this.imagesUnique = [...new Set(this.images)]
+
+      /* const formData = new FormData()
+      formData.append('file', this.imagesUnique[0].name)
+      this.$axios.post('uploads', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }) */
+      const camera = document.getElementById('camera').files
+      console.log(camera[0])
+      const img = new Image()
+      img.src = camera[0]
+      const base64 = l3s.EncryptNetwork(img)
+      this.$q.sessionStorage.set('images', base64)
     },
     openImages () {
-      /* const camera = document.getElementById('camera').files
-      console.log(camera) */
-      console.log(this.imagesUnique)
+      // const moveFile = require('move-file')
+      // console.log(camera)
+      // /* console.log(this.imagesUnique) */
+      // const reader = new FileReader()
+      // reader.addEventListener('load', (event) => {
+      //   img.src = event.target.result
+      // })
+      // reader.readAsDataURL(camera)
+      // moveFile(camera, '../assets/uploads/sample.jpg')
+      this.$router.push('/images', () => {})
     },
     sample () {
       this.$router.push('/images', () => {})
@@ -7465,8 +7485,10 @@ export default {
   } */
   beforeDestroy () {
     /* window.removeEventListener('unload', this.fetchInfo()) */
-    const camera = document.getElementById('camera')
-    camera.removeEventListener('change')
+    // const camera = document.getElementById('camera')
+    // camera.removeEventListener('change', () => {
+    //   this.saveImages(camera.files[0])
+    // })
   }
 }
 </script>
