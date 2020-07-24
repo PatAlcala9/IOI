@@ -9,8 +9,7 @@
     "dev": "quasar dev -m spa -p 2234",
     "build": "quasar build -m pwa",
     "desk": "quasar build -m electron",
-    "deploy": "now --prod",
-    "github": "push-dir --dir=dist/pwa --remote=gh-pages --branch=master"
+    "deploy": "now --prod"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
@@ -38,7 +37,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
-    "push-dir": "^0.4.1",
     "webpack-obfuscator": "^1.6.0",
     "workbox-webpack-plugin": "^5.0.0"
   },
