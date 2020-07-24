@@ -44,7 +44,7 @@
     </div>
     <div><br/><br/></div>
 
-    <div class="typeofcon" v-if="appid > 0">
+    <div class="typeofcon" v-if="showTypeofConstruction"> <!--v-if="appid > 0"-->
       <label>Type of Construction :</label><br />
       <q-btn-dropdown v-if="savedTypeBool" split unelevated color="white" text-color="black" @input="checkSavedDropdown">
         <template v-slot:label>
@@ -1196,7 +1196,7 @@
         {{access}}
     </div> -->
 
-    <div class="typeofcon" v-if="appid > 0">
+    <div class="typeofcon" v-if="showTypeofConstruction"> <!--v-if="appid > 0"-->
       <label>Type of Construction :</label><br />
       <q-btn-dropdown v-if="savedTypeBool" split unelevated color="white" text-color="black" @input="checkSavedDropdown">
         <template v-slot:label>
@@ -2482,7 +2482,8 @@ export default {
 
       selectedType: 'Please Select a Type',
       images: [],
-      imagesUnique: []
+      imagesUnique: [],
+      showTypeofConstruction: false
     }
   },
   computed: {},
@@ -2627,6 +2628,7 @@ export default {
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = true
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -2661,6 +2663,7 @@ export default {
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = true
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -2743,7 +2746,7 @@ export default {
                 .then((response) => {
                   const remarks = response.data[0].remarks
 
-                  if (remarks.includes('INSPECTION')) {
+                  if (remarks.includes('INSPECTION') || remarks.includes('INSPECTED')) {
                     this.$axios.get('/api/getCustomerOccupancy' + '/' + (this.appid))
                       .then((response) => {
                         const result = response.data
@@ -2761,6 +2764,7 @@ export default {
 
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = false
                       })
                   } else {
                     this.$q.loading.hide()
@@ -2850,6 +2854,7 @@ export default {
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = false
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -2955,6 +2960,7 @@ export default {
                         this.typeoruse = occupancy + ' - ' + occupancytype
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = false
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -3060,6 +3066,7 @@ export default {
                         this.typeoruse = occupancy
                         this.loadTables()
                         this.saveInfo()
+                        this.showTypeofConstruction = false
                       })
                       .catch((err) => {
                         this.$q.loading.hide()
@@ -6969,7 +6976,7 @@ export default {
         encodedBy: employeename,
         inspector: empid
       }) */
-      await this.$axios.post('SaveSignage', {
+      await this.$axios.post('/api/SaveSignage', {
         ref_progressflowid: 0,
         signageid: this.appid,
         findings: str,
@@ -6997,7 +7004,7 @@ export default {
         inspector1: empid,
         inspector2: empid
       }) */
-      await this.$axios.post('SaveElectrical', {
+      await this.$axios.post('/api/SaveElectrical', {
         ref_progressflowid: 0,
         electricalid: this.appid,
         dateStart: fulldate,
@@ -7011,7 +7018,7 @@ export default {
         electricalid: this.appid,
         findings: str
       }) */
-      await this.$axios.post('SaveElectricalFindings', {
+      await this.$axios.post('/api/SaveElectricalFindings', {
         electricalid: this.appid,
         findings: str
       })
@@ -7032,7 +7039,7 @@ export default {
         dateEnd: fulldate,
         employeeid: empid
       }) */
-      await this.$axios.post('SaveMechanical', {
+      await this.$axios.post('/api/SaveMechanical', {
         ref_progressflowid: 0,
         mechanicalid: this.appid,
         dateStart: fulldate,
@@ -7045,7 +7052,7 @@ export default {
         mechanicalid: this.appid,
         findings: str
       }) */
-      await this.$axios.post('SaveMechanicalFindings', {
+      await this.$axios.post('/api/SaveMechanicalFindings', {
         mechanicalid: this.appid,
         findings: str
       })
@@ -7433,6 +7440,17 @@ export default {
       }
     },
     checkPage () {},
+    getTypeofConstruction () {
+      this.$axios.get('/api/GetTypeofConstruction' + this.appid)
+        .then((response) => {
+          const result = response.data[0].result
+
+          this.selectedType = result
+        })
+        .catch((err) => {
+          this.errorMessage(err)
+        })
+    },
     async saveImages (image) {
       this.images.push(image)
       this.imagesUnique = [...new Set(this.images)]
