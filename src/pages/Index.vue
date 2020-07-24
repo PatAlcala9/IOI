@@ -478,10 +478,12 @@ export default {
         const employeeListContent = await l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('employeeList') + '_token'))
         const employeeListJSON = json.parse(employeeListContent)
         const ePassword = l3s.Encrypt(pword)
+        // const isonline = jsonize[0].is_online
         let dbPassword
         let fullname
         let employeeid
         let isInspector
+        let isOnline
 
         for (let i = 0; i < employeeListJSON.length; i++) {
           if (employeeListJSON[i].twou === uname.toUpperCase()) {
@@ -489,6 +491,7 @@ export default {
             fullname = await employeeListJSON[i].fivee
             employeeid = await employeeListJSON[i].onee
             isInspector = await employeeListJSON[i].fouri
+
             break
           }
         }
@@ -526,6 +529,21 @@ export default {
               icon: 'error',
               title: 'Invalid Login',
               text: 'Only Inspectors are allowed',
+              background: color
+            })
+            return
+          }
+
+          await this.$axios.get('/api/CheckOnline/' + employeeid)
+            .then((response) => {
+              isOnline = response.data[0].result
+            })
+
+          if (isOnline > 0) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Invalid Login',
+              text: 'Account is already Online',
               background: color
             })
             return
