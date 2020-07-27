@@ -2486,7 +2486,16 @@ export default {
       showTypeofConstruction: false
     }
   },
-  computed: {},
+  computed: {
+    imageState: {
+      get () {
+        return this.$store.state.images.image
+      },
+      set (value) {
+        this.$store.dispatch('images/updateImages', value)
+      }
+    }
+  },
   components: {
     ilabel
   },
@@ -2518,11 +2527,18 @@ export default {
       }
     },
     async gotoCamera () {
-      // this.$router.push('camera', () => {})
       const camera = await document.getElementById('camera')
       camera.click()
-      camera.addEventListener('change', () => {
-        this.saveImages(camera.files[0])
+      camera.addEventListener('change', (e) => {
+        const iFile = e.target.files[0]
+        const reader = new FileReader()
+
+        reader.readAsDataURL(iFile)
+
+        reader.onload = (e) => {
+          const result = reader.result
+          this.saveImages(result)
+        }
       })
     },
     setType (value) {
@@ -7454,22 +7470,21 @@ export default {
     async saveImages (image) {
       this.images.push(image)
       this.imagesUnique = [...new Set(this.images)]
-
-      /* const formData = new FormData()
-      formData.append('file', this.imagesUnique[0].name)
-      this.$axios.post('uploads', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }) */
-      const camera = document.getElementById('camera').files
-      console.log(camera[0])
-      const img = new Image()
-      img.src = camera[0]
-      const base64 = l3s.EncryptNetwork(img)
-      this.$q.sessionStorage.set('images', base64)
     },
-    openImages () {
+    async combineImages () {
+      // console.log(this.imagesUnique)
+      let base64 = null
+      for (let i = 0; i < this.imagesUnique.length; i++) {
+        base64 = await l3s.EncryptNetwork(this.imagesUnique[i])
+        const zipped = (base64)
+        // if (this.$q.sessionStorage.has('__' + l3s.Encrypt('images') + '_token' + i)) {
+        //   this.$q.sessionStorage.remove('__' + l3s.Encrypt('images') + '_token' + i)
+        // }
+        // this.$q.sessionStorage.set('__' + l3s.Encrypt('images') + '_token' + i, l3s.EncryptNetwork(this.imagesUnique[i]))
+        console.log('images ', i, ': ', zipped)
+      }
+    },
+    async openImages () {
       // const moveFile = require('move-file')
       // console.log(camera)
       // /* console.log(this.imagesUnique) */
@@ -7479,6 +7494,7 @@ export default {
       // })
       // reader.readAsDataURL(camera)
       // moveFile(camera, '../assets/uploads/sample.jpg')
+      await this.combineImages()
       this.$router.push('/images', () => {})
     },
     sample () {

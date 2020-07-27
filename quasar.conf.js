@@ -190,7 +190,7 @@ module.exports = function (ctx) {
           appleTouchIcon120: 'icons/apple-icon-120x120.png',
           appleTouchIcon152: 'icons/apple-icon-152x152.png',
           appleTouchIcon167: 'icons/apple-icon-167x167.png',
-          appleTouchIcon180: 'cons/apple-icon-180x180.png',
+          appleTouchIcon180: 'icons/apple-icon-180x180.png',
           appleSafariPinnedTab: 'icons/safari-pinned-tab.svg',
           msapplicationTileImage: 'icons/ms-icon-144x144.png',
           msapplicationTileColor: '#000000'
