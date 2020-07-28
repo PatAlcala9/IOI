@@ -7480,8 +7480,8 @@ export default {
         // if (this.$q.sessionStorage.has('__' + l3s.Encrypt('images') + '_token' + i)) {
         //   this.$q.sessionStorage.remove('__' + l3s.Encrypt('images') + '_token' + i)
         // }
-        // this.$q.sessionStorage.set('__' + l3s.Encrypt('images') + '_token' + i, l3s.EncryptNetwork(this.imagesUnique[i]))
-        console.log('images ', i, ': ', zipped)
+        this.$q.sessionStorage.set('__' + l3s.Encrypt('images') + '_token', zipped)
+        // console.log('images ', i, ': ', zipped)
       }
     },
     async openImages () {

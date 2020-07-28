@@ -515,7 +515,6 @@ export default {
         }
 
         if (ePassword === dbPassword) {
-          this.$q.loading.hide()
           this.checkDark()
           let color
           if (this.dark) {
@@ -540,6 +539,7 @@ export default {
             })
 
           if (isOnline > 0) {
+            this.$q.loading.hide()
             Swal.fire({
               icon: 'error',
               title: 'Invalid Login',
@@ -548,7 +548,7 @@ export default {
             })
             return
           }
-
+          this.$q.loading.hide()
           this.$q.localStorage.remove('__' + l3s.Encrypt('id') + '_token')
           this.$q.localStorage.set('__' + l3s.Encrypt('id') + '_token', l3s.EncryptNetwork(employeeid))
           this.storeAuth(uname, pword)

@@ -7,13 +7,23 @@
 </template>
 
 <script>
-// const l3s = require('../assets/js/L3S')
+const l3s = require('../assets/js/L3S')
 
 export default {
   data () {
     return {
       slide: 1,
       image: null
+    }
+  },
+  computed: {
+    imageState: {
+      get () {
+        return this.$store.state.images.image
+      },
+      set (value) {
+        this.$store.dispatch('images/updateImages', value)
+      }
     }
   },
   methods: {
@@ -32,9 +42,9 @@ export default {
       // const b64 = Base64.decode(images)
       // console.log('b64 decode: ', b64)
       // this.image = b64
-      // const images = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('images') + '_token'))
+      const images = l3s.DecryptNetwork(this.$q.sessionStorage.getItem('__' + l3s.Encrypt('images') + '_token'))
       // console.log(images.length)
-      // this.image = images
+      this.image = images
     }
   },
   created () {
