@@ -16,7 +16,7 @@
       <transition appear enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
       <q-btn v-if="appno !== ''" round unelevated class="searchcircle" color="primary" @click="loadData"><q-icon name="search"/></q-btn>
       </transition>
-      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="openImages"/>
+      <q-btn class="logout" unelevated rounded color="primary" label="Logout" @click="logout"/>
     </div>
     <div><br/></div>
     <div class="details">
@@ -129,7 +129,7 @@
         </template>
       </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgLG')"/>
 
         <q-dialog v-model="deleterowblg" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1281,7 +1281,13 @@
         </template>
       </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgLG')"/>
+
+      <div v-if="imagesBldgLG.length > 0">
+          <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="slide">
+            <q-carousel-slide v-for="image in imagesBldgLG" :key="image" :name="image" :img-src="image"/>
+          </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowblg" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1320,7 +1326,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occlgdata, 'LINE AND GRADE')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccLG')"/>
+
+      <div v-if="imagesOccLG.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="slide">
+          <q-carousel-slide v-for="image in imagesOccLG" :key="image" :name="image" :img-src="image"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowolg" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -2319,6 +2331,7 @@ const json = require('zipson')
 
 //* *Import of Components */
 import ilabel from 'components/i-label'
+// import { Base64 } from 'js-base64'
 
 export default {
   name: 'Main',
@@ -2482,20 +2495,16 @@ export default {
 
       selectedType: 'Please Select a Type',
       images: [],
+      image: 1,
       imagesUnique: [],
-      showTypeofConstruction: false
+      showTypeofConstruction: false,
+      imagesBldgLG: [],
+      imagesOccLG: [],
+      imagesBldgArch: [],
+      imagesOccArch: []
     }
   },
-  computed: {
-    imageState: {
-      get () {
-        return this.$store.state.images.image
-      },
-      set (value) {
-        this.$store.dispatch('images/updateImages', value)
-      }
-    }
-  },
+  computed: {},
   components: {
     ilabel
   },
@@ -2526,7 +2535,7 @@ export default {
         this.dark = false
       }
     },
-    async gotoCamera () {
+    async gotoCamera (storage) {
       const camera = await document.getElementById('camera')
       camera.click()
       camera.addEventListener('change', (e) => {
@@ -2537,7 +2546,7 @@ export default {
 
         reader.onload = (e) => {
           const result = reader.result
-          this.saveImages(result)
+          this.saveImages(result, storage)
         }
       })
     },
@@ -7467,22 +7476,38 @@ export default {
           this.errorMessage(err)
         })
     },
-    async saveImages (image) {
+    async saveImages (image, storage) {
       this.images.push(image)
-      this.imagesUnique = [...new Set(this.images)]
+      if (storage === 'BldgLG') {
+        this.imagesBldgLG = [...new Set(this.images)]
+      } else if (storage === 'OccLG') {
+        this.imagesOccLG = [...new Set(this.images)]
+      } else if (storage === 'BldgArch') {
+        this.imagesBldgArch = [...new Set(this.images)]
+      } else if (storage === 'OccArch') {
+        this.imagesOccArch = [...new Set(this.images)]
+      } else if (storage === 'OccArch') {
+        this.imagesOccArch = [...new Set(this.images)]
+      }
+      // this.imagesUnique = [...new Set(this.images)]
     },
     async combineImages () {
       // console.log(this.imagesUnique)
-      let base64 = null
-      for (let i = 0; i < this.imagesUnique.length; i++) {
-        base64 = await l3s.EncryptNetwork(this.imagesUnique[i])
-        const zipped = (base64)
-        // if (this.$q.sessionStorage.has('__' + l3s.Encrypt('images') + '_token' + i)) {
-        //   this.$q.sessionStorage.remove('__' + l3s.Encrypt('images') + '_token' + i)
-        // }
-        this.$q.sessionStorage.set('__' + l3s.Encrypt('images') + '_token', zipped)
-        // console.log('images ', i, ': ', zipped)
-      }
+
+      // for (let i = 0; i < this.imagesUnique.length; i++) {
+      //   const base64 = await Base64.encode(this.imagesUnique[i])
+      //   // if (this.$q.sessionStorage.has('__' + l3s.Encrypt('images' + i) + '_token')) {
+      //   //   this.$q.sessionStorage.remove('__' + l3s.Encrypt('images' + i) + '_token')
+      //   // }
+      //   // this.$q.sessionStorage.set('__' + l3s.Encrypt('images' + i) + '_token', base64)
+      //   // console.log(base64)
+      //   // console.log('images' + i)
+      // // console.log('images ', i, ': ', zipped)
+      // // const file = new File(this.imagesUnique, '1.jpg')
+      // // console.log(file)
+      // // saveAs(file, { type: 'image.jpeg' }, '../assets/uploads')
+      // }
+      // this.imageState = base64
     },
     async openImages () {
       // const moveFile = require('move-file')

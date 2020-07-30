@@ -1169,10 +1169,10 @@
     core-js "^3.6.5"
     core-js-compat "^3.6.5"
 
-"@quasar/extras@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.9.0.tgz#658b9fc0099388f33737bc9a9dd8ede17d7eae82"
-  integrity sha512-+kWpgSMxvOuGLLQPT0PJL+SL7NPqhima4RfbJLRYbA8A3RAvFm8Ay5wE6CQKTn1sDHLBx/y/Zp+wvYlt1bfFLw==
+"@quasar/extras@^1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.9.2.tgz#088b4c6e2d8d0ae625cad311e9c0f9502cab11e2"
+  integrity sha512-OP2qTOveQHkTmaxsEhSPhXTs3s0MxGevIjQMZ8e79U3HhlGYSO48wBH2iUrK5c6XlALOq9zqHQJoGt5QnhWdUA==
 
 "@quasar/fastclick@1.1.4":
   version "1.1.4"
@@ -4422,6 +4422,11 @@ file-loader@6.0.0:
     loader-utils "^2.0.0"
     schema-utils "^2.6.5"
 
+file-saver@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-2.0.2.tgz#06d6e728a9ea2df2cce2f8d9e84dfcdc338ec17a"
+  integrity sha512-Wz3c3XQ5xroCxd1G8b7yL0Ehkf0TC9oYC6buPFkNnU9EnaPlifeAFCyCh+iewXTyFRcg0a6j3J7FmJsIhlhBdw==
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -5917,6 +5922,11 @@ js-base64@^2.1.8:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.3.tgz#7afdb9b57aa7717e15d370b66e8f36a9cb835dc3"
   integrity sha512-fiUvdfCaAXoQTHdKMgTvg6IkecXDcVz6V5rlftUTclF9IKBjMizvSdQaCl/z/6TApDeby5NL+axYou3i0mu1Pg==
+
+js-base64@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.3.3.tgz#0566cdea2f631ee17e4c770637e30dfc0c70ae72"
+  integrity sha512-bLQW6u9cu9eNKQcgYujmr7314UyLkfggibqAKrVDKbJAW3jMtjj64LKI/fCg6nEprH4Af4n7xuz5aJU4jmXrzA==
 
 js-string-escape@1.0.1:
   version "1.0.1"
