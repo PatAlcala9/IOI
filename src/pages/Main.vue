@@ -1419,7 +1419,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occarchdata, 'ARCHITECTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccArch')"/>
+
+      <div v-if="imagesOccArchU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccArchI">
+          <q-carousel-slide v-for="i in imagesOccArchU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowoar" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1459,7 +1465,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgstructdata, 'STRUCTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgStruct')" />
+
+      <div v-if="imagesBldgStructU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgStructI">
+          <q-carousel-slide v-for="i in imagesBldgStructU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbst" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1499,7 +1511,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occstructdata, 'STRUCTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccStruct')"/>
+
+      <div v-if="imagesOccStructU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccStructI">
+          <q-carousel-slide v-for="i in imagesOccStructU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowost" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1539,7 +1557,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgplumdata, 'SANITARY/PLUMBING')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgPlum')"/>
+
+      <div v-if="imagesBldgPlumU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgPlumI">
+          <q-carousel-slide v-for="i in imagesBldgPlumU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbpl" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1579,7 +1603,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occplumdata, 'SANITARY/PLUMBING')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccPlum')"/>
+
+      <div v-if="imagesOccPlumU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccPlumI">
+          <q-carousel-slide v-for="i in imagesOccPlumU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowopl" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1619,7 +1649,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgelecdata, 'ELECTRICAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgElec')"/>
+
+      <div v-if="imagesBldgElecU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgElecI">
+          <q-carousel-slide v-for="i in imagesBldgElecU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbel" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1659,7 +1695,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occelecdata, 'ELECTRICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccElec')"/>
+
+      <div v-if="imagesOccElecU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccElecI">
+          <q-carousel-slide v-for="i in imagesOccElecU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowoel" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1699,7 +1741,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgmechdata, 'MECHANICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgMech')"/>
+
+      <div v-if="imagesBldgMechU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgMechI">
+          <q-carousel-slide v-for="i in imagesBldgMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowbme" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1739,7 +1787,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occmechdata, 'MECHANICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccMech')"/>
+
+      <div v-if="imagesOccMechU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccMechI">
+          <q-carousel-slide v-for="i in imagesOccMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowome" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -2516,9 +2570,9 @@ export default {
       savedMechanicalMsg: null,
 
       selectedType: 'Please Select a Type',
-      images: [],
-      image: 1,
-      imagesUnique: [],
+      // images: [],
+      // image: 1,
+      // imagesUnique: [],
       showTypeofConstruction: false,
       imagesBldgLG: [],
       imagesOccLG: [],
@@ -5377,6 +5431,9 @@ export default {
                 typeofconstruction: this.selectedType
               })
             })
+            .then(() => {
+              return this.saveImagesDatabase('BldgLG')
+            })
         }
 
         // if (this.$q.localStorage.has('__' + l3s.Encrypt('saveBuilding' + progressflow) + '_token')) {
@@ -6752,7 +6809,6 @@ export default {
           if (progressflow.includes('LINE AND GRADE')) {
             this.savedbldgLG = 2
             this.savedbldgLGMsg = response.data
-            return this.saveImagesDatabase('BldgLG')
           } else if (progressflow.includes('ARCHI')) {
             this.savedbldgArch = 2
             this.savedbldgArchMsg = response.data
@@ -6841,11 +6897,9 @@ export default {
           if (progressflow.includes('LINE AND GRADE')) {
             this.savedbldgLG = 2
             this.savedbldgLGMsg = response.data
-            this.saveImagesDatabase('BldgLG')
           } else if (progressflow.includes('ARCHI')) {
             this.savedbldgArch = 2
             this.savedbldgArchMsg = response.data
-            this.saveImagesDatabase('BldgArch')
           } else if (progressflow.includes('STRUCTURAL')) {
             this.savedbldgStruct = 2
             this.savedbldgStructMsg = response.data
@@ -7603,14 +7657,31 @@ export default {
       if (storage === 'BldgLG') {
         division = 1
         progressflow = 'LINE AND GRADE'
+        // const imageList = this.imagesBldgLGU
 
-        for (let i = 0; i < this.imagesBldgLGU; i++) {
+        for (let i = 0; i < this.imagesBldgLGU.length; i++) {
           await this.$axios.post('/api/SaveImage', {
             ref_division: division,
             ref_progressflow: progressflow,
             image: this.imagesBldgLGU[i]
           })
         }
+        // console.log(division, progressflow)
+        // console.log(this.imagesBldgLGU[0])
+
+        // for (let img in imageList) {
+        //   await this.$axios.post('/api/SaveImage', {
+        //     ref_division: division,
+        //     ref_progressflow: progressflow,
+        //     image: imageList[img]
+        //   })
+        // }
+
+        // await this.$axios.post('/api/SaveImage', {
+        //   ref_division: division,
+        //   ref_progressflow: progressflow,
+        //   image: this.imagesBldgLGU[0]
+        // })
       } else if (storage === 'OccLG') {
         division = 2
         progressflow = 'LINE AND GRADE'
