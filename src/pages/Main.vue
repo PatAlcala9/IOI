@@ -1833,7 +1833,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveSignage2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Signage')"/>
+
+      <div v-if="imagesSign.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesSignI">
+          <q-carousel-slide v-for="i in imagesSignU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowsig" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1873,7 +1879,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveElectrical2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Electrical')"/>
+
+      <div v-if="imagesElec.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesElecI">
+          <q-carousel-slide v-for="i in imagesElecU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowele" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1913,7 +1925,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveMechanical2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Mechanical')"/>
+
+      <div v-if="imagesMech.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesMechI">
+          <q-carousel-slide v-for="i in imagesMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowmec" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1953,7 +1971,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" /> <!-- @click="saveZoning" -->
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Zoning')"/>
+
+       <div v-if="imagesZoning.length > 0">
+         <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesZoningI">
+           <q-carousel-slide v-for="i in imagesZoningU" :key="i" :name="i" :img-src="i"/>
+         </q-carousel>
+       </div>
 
       <q-dialog v-model="deleterowzon" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1993,7 +2017,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" /> <!-- @click="saveBFP" -->
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BFP')"/>
+
+       <div v-if="imagesBFP.length > 0">
+         <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBFPI">
+           <q-carousel-slide v-for="i in imagesBFPU" :key="i" :name="i" :img-src="i"/>
+         </q-carousel>
+       </div>
 
       <q-dialog v-model="deleterowbfp" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -2586,6 +2616,12 @@ export default {
       imagesOccElec: [],
       imagesBldgMech: [],
       imagesOccMech: [],
+      imagesSign: [],
+      imagesElec: [],
+      imagesMech: [],
+      imagesZoning: [],
+      imagesBFP: [],
+
       imagesBldgLGU: [],
       imagesOccLGU: [],
       imagesBldgArchU: [],
@@ -2598,6 +2634,12 @@ export default {
       imagesOccElecU: [],
       imagesBldgMechU: [],
       imagesOccMechU: [],
+      imagesSignU: [],
+      imagesElecU: [],
+      imagesMechU: [],
+      imagesZoningU: [],
+      imagesBFPU: [],
+
       imagesBldgLGI: 1,
       imagesOccLGI: 1,
       imagesBldgArchI: 1,
@@ -2609,7 +2651,12 @@ export default {
       imagesBldgElecI: 1,
       imagesOccElecI: 1,
       imagesBldgMechI: 1,
-      imagesOccMechI: 1
+      imagesOccMechI: 1,
+      imagesSignI: 1,
+      imagesElecI: 1,
+      imagesMechI: 1,
+      imagesZoningI: 1,
+      imagesBFPI: 1
     }
   },
   computed: {},
@@ -2665,6 +2712,16 @@ export default {
         camera = await document.getElementById('cameraBldgMech')
       } else if (storage === 'OccMech') {
         camera = await document.getElementById('cameraOccMech')
+      } else if (storage === 'Signage') {
+        camera = await document.getElementById('cameraSignage')
+      } else if (storage === 'Electrical') {
+        camera = await document.getElementById('cameraElectrical')
+      } else if (storage === 'Mechanical') {
+        camera = await document.getElementById('cameraMechanical')
+      } else if (storage === 'Zoning') {
+        camera = await document.getElementById('cameraZoning')
+      } else if (storage === 'BFP') {
+        camera = await document.getElementById('cameraBFP')
       }
 
       camera.click()
@@ -7647,8 +7704,22 @@ export default {
       } else if (storage === 'OccMech') {
         this.imagesOccMech.push(image)
         this.imagesOccMechU = [...new Set(this.imagesOccMech)]
+      } else if (storage === 'Signage') {
+        this.imagesSign.push(image)
+        this.imagesSignU = [...new Set(this.imagesSign)]
+      } else if (storage === 'Electrical') {
+        this.imagesElec.push(image)
+        this.imagesElecU = [...new Set(this.imagesElec)]
+      } else if (storage === 'Mechanical') {
+        this.imagesMech.push(image)
+        this.imagesMechU = [...new Set(this.imagesMech)]
+      } else if (storage === 'Zoning') {
+        this.imagesZoning.push(image)
+        this.imagesZoningU = [...new Set(this.imagesZoning)]
+      } else if (storage === 'BFP') {
+        this.imagesBFP.push(image)
+        this.imagesBFPU = [...new Set(this.imagesBFP)]
       }
-      // this.imagesUnique = [...new Set(this.images)]
     },
     async saveImagesDatabase (storage) {
       let division = null
@@ -7657,7 +7728,6 @@ export default {
       if (storage === 'BldgLG') {
         division = 1
         progressflow = 'LINE AND GRADE'
-        // const imageList = this.imagesBldgLGU
 
         for (let i = 0; i < this.imagesBldgLGU.length; i++) {
           await this.$axios.post('/api/SaveImage', {
@@ -7666,59 +7736,183 @@ export default {
             image: this.imagesBldgLGU[i]
           })
         }
-        // console.log(division, progressflow)
-        // console.log(this.imagesBldgLGU[0])
-
-        // for (let img in imageList) {
-        //   await this.$axios.post('/api/SaveImage', {
-        //     ref_division: division,
-        //     ref_progressflow: progressflow,
-        //     image: imageList[img]
-        //   })
-        // }
-
-        // await this.$axios.post('/api/SaveImage', {
-        //   ref_division: division,
-        //   ref_progressflow: progressflow,
-        //   image: this.imagesBldgLGU[0]
-        // })
       } else if (storage === 'OccLG') {
         division = 2
         progressflow = 'LINE AND GRADE'
+
+        for (let i = 0; i < this.imagesOccLGU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccLGU[i]
+          })
+        }
       } else if (storage === 'BldgArch') {
         division = 1
         progressflow = 'ARCHITECTURAL'
+
+        for (let i = 0; i < this.imagesBldgArchU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgArchU[i]
+          })
+        }
       } else if (storage === 'OccArch') {
         division = 2
         progressflow = 'ARCHITECTURAL'
+
+        for (let i = 0; i < this.imagesOccArchU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccArchU[i]
+          })
+        }
       } else if (storage === 'BldgStruct') {
         division = 1
         progressflow = 'STRUCTURAL'
+
+        for (let i = 0; i < this.imagesBldgStructU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgStructU[i]
+          })
+        }
       } else if (storage === 'OccStruct') {
         division = 2
         progressflow = 'STRUCTURAL'
+
+        for (let i = 0; i < this.imagesOccStructU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccStructU[i]
+          })
+        }
       } else if (storage === 'BldgPlum') {
         division = 1
         progressflow = 'SANITARY PLUMBING'
+
+        for (let i = 0; i < this.imagesBldgPlumU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgPlumU[i]
+          })
+        }
       } else if (storage === 'OccPlum') {
         division = 2
         progressflow = 'SANITARY PLUMBING'
+
+        for (let i = 0; i < this.imagesOccPlumU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccPlumU[i]
+          })
+        }
       } else if (storage === 'BldgElec') {
         division = 1
         progressflow = 'ELECTRICAL'
+
+        for (let i = 0; i < this.imagesBldgElecU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgElecU[i]
+          })
+        }
       } else if (storage === 'OccElec') {
         division = 2
         progressflow = 'ELECTRICAL'
+
+        for (let i = 0; i < this.imagesOccElecU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccElecU[i]
+          })
+        }
       } else if (storage === 'BldgMech') {
         division = 1
         progressflow = 'MECHANICAL'
+
+        for (let i = 0; i < this.imagesBldgMechU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgMechU[i]
+          })
+        }
       } else if (storage === 'OccMech') {
         division = 2
         progressflow = 'MECHANICAL'
+
+        for (let i = 0; i < this.imagesOccMechU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesOccMechU[i]
+          })
+        }
+      } else if (storage === 'Signage') {
+        division = 3
+        progressflow = 'SIGNAGE'
+
+        for (let i = 0; i < this.imagesSignU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesSignU[i]
+          })
+        }
+      } else if (storage === 'Electrical') {
+        division = 4
+        progressflow = 'ELECTRICAL'
+
+        for (let i = 0; i < this.imagesElecU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesElecU[i]
+          })
+        }
+      } else if (storage === 'Mechanical') {
+        division = 5
+        progressflow = 'MECHANICAL'
+
+        for (let i = 0; i < this.imagesMechU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesMechU[i]
+          })
+        }
+      } else if (storage === 'Zoning') {
+        division = 6
+        progressflow = 'ZONING'
+
+        for (let i = 0; i < this.imagesZoningU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesZoningU[i]
+          })
+        }
+      } else if (storage === 'BFP') {
+        division = 7
+        progressflow = 'BUREAU OF FIRE'
+
+        for (let i = 0; i < this.imagesBFPU.length; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBFPU[i]
+          })
+        }
       }
-    },
-    sample () {
-      this.$router.push('/images', () => {})
     }
   },
   created () {
