@@ -48,7 +48,7 @@ module.exports = function (ctx) {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       devtool: 'source-map',
       // transpile: false,
-      distDir: ctx.mode.pwa ? 'public' : null,
+      // distDir: ctx.mode.pwa ? 'public' : null,
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
       // Applies only if "transpile" is set to true.
@@ -77,7 +77,7 @@ module.exports = function (ctx) {
             controlFlowFlattening: false,
             deadCodeInjection: false,
             debugProtection: true,
-            debugProtectionInterval: false,
+            debugProtectionInterval: true,
             disableConsoleOutput: true,
             identifierNamesGenerator: 'hexadecimal',
             log: false,
@@ -138,7 +138,7 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {
-      pwa: false
+      pwa: true
     },
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
@@ -156,7 +156,7 @@ module.exports = function (ctx) {
         orientation: 'portrait',
         background_color: '#507f95',
         theme_color: '#507f95', /* '#027be3' */
-        start_url: 'https://iipsoi.now.sh',
+        start_url: 'https://iipsoi-0ac852.netlify.app',
         icons: [
           {
             src: 'icons/icon-128x128.png',

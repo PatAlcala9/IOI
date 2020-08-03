@@ -1153,7 +1153,6 @@
       <img src="..\statics\background-ling.jpg" width="400" height="600"/>>
     </div> -->
       <div class="grid-container">
-        <input id="camera" type="file" accept="image/*" capture="camera" hidden/>
         <q-input class="searchbar" bg-color="white" rounded outlined v-model="appno" mask="##-########" label="Application Number" @keydown.enter="loadData">
           <template v-slot:append>
             <q-avatar>
@@ -1258,6 +1257,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildinglgaccess">
+      <input id="cameraBldgLG" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Line and Grade" :data="bldglgdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" row-key="name" flat hide-bottom>
         <template v-slot:top v-if="appid > 0">
@@ -1283,9 +1283,9 @@
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgLG')"/>
 
-      <div v-if="imagesBldgLG.length > 0">
-          <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="slide">
-            <q-carousel-slide v-for="image in imagesBldgLG" :key="image" :name="image" :img-src="image"/>
+      <div v-if="imagesBldgLGU.length > 0">
+          <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgLGI">
+            <q-carousel-slide v-for="i in imagesBldgLGU" :key="i" :name="i" :img-src="i"/>
           </q-carousel>
       </div>
 
@@ -1304,6 +1304,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancylgaccess">
+      <input id="cameraOccLG" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Line and Grade" :data="occlgdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1328,9 +1329,9 @@
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occlgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccLG')"/>
 
-      <div v-if="imagesOccLG.length > 0">
-        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="slide">
-          <q-carousel-slide v-for="image in imagesOccLG" :key="image" :name="image" :img-src="image"/>
+      <div v-if="imagesOccLGU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccLGI">
+          <q-carousel-slide v-for="image in imagesOccLGU" :key="image" :name="image" :img-src="image"/>
         </q-carousel>
       </div>
 
@@ -1349,6 +1350,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildingarchaccess">
+      <input id="cameraBldgArch" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Architecture" :data="bldgarchdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1371,7 +1373,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgarchdata, 'ARCHITECTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgArch')"/>
+
+      <div v-if="imagesBldgArchU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgArchI">
+          <q-carousel-slide v-for="i in imagesBldgArchU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbar" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -1388,6 +1396,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancyarchaccess">
+      <input id="cameraOccArch" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Architecture" :data="occarchdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1427,6 +1436,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildingstructaccess">
+      <input id="cameraBldgStruct" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Structural" :data="bldgstructdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1466,6 +1476,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancystructaccess">
+      <input id="cameraOccStruct" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Structural" :data="occstructdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1505,6 +1516,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildingplumaccess">
+      <input id="cameraBldgPlum" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Sanitary/Plumbing" :data="bldgplumdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1544,6 +1556,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancyplumaccess">
+      <input id="cameraOccPlum" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Sanitary/Plumbing" :data="occplumdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1583,6 +1596,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildingelecaccess">
+      <input id="cameraBldgElec" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Sanitary/Plumbing" :data="bldgelecdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1622,6 +1636,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancyelecaccess">
+      <input id="cameraOccElec" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Sanitary/Plumbing" :data="occelecdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1661,6 +1676,7 @@
     </div>
 
     <div class="dtable" v-if="userbuildingmechaccess">
+      <input id="cameraBldgMech" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Building Sanitary/Plumbing" :data="bldgmechdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1700,6 +1716,7 @@
     </div>
 
     <div class="dtable" v-if="useroccupancymechaccess">
+      <input id="cameraOccMech" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Occupancy Sanitary/Plumbing" :data="occmechdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1739,6 +1756,7 @@
     </div>
 
     <div class="dtable" v-if="usersignageaccess">
+      <input id="cameraSignage" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Signage" :data="signdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1778,6 +1796,7 @@
     </div>
 
     <div class="dtable" v-if="userelectricalaccess">
+      <input id="cameraElectrical" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Electrical" :data="elecdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1817,6 +1836,7 @@
     </div>
 
     <div class="dtable" v-if="usermechanicalaccess">
+      <input id="cameraMechanical" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Mechanical" :data="mechdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1856,6 +1876,7 @@
     </div>
 
      <div class="dtable" v-if="userzoningaccess">
+       <input id="cameraZoning" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Land Use and Zoning" :data="zoningdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -1895,6 +1916,7 @@
     </div>
 
      <div class="dtable" v-if="userbfpaccess">
+       <input id="cameraBFP" type="file" accept="image/*" capture="camera" hidden/>
       <br/>
       <q-table class="datatable" title="Findings for Land Use and Zoning" :data="bfpdata" :columns="columns" :table-style="{ backgroundColor: '#cfd8dc' }" flat hide-bottom>
           <template v-slot:top v-if="appid > 0">
@@ -2501,7 +2523,39 @@ export default {
       imagesBldgLG: [],
       imagesOccLG: [],
       imagesBldgArch: [],
-      imagesOccArch: []
+      imagesOccArch: [],
+      imagesBldgStruct: [],
+      imagesOccStruct: [],
+      imagesBldgPlum: [],
+      imagesOccPlum: [],
+      imagesBldgElec: [],
+      imagesOccElec: [],
+      imagesBldgMech: [],
+      imagesOccMech: [],
+      imagesBldgLGU: [],
+      imagesOccLGU: [],
+      imagesBldgArchU: [],
+      imagesOccArchU: [],
+      imagesBldgStructU: [],
+      imagesOccStructU: [],
+      imagesBldgPlumU: [],
+      imagesOccPlumU: [],
+      imagesBldgElecU: [],
+      imagesOccElecU: [],
+      imagesBldgMechU: [],
+      imagesOccMechU: [],
+      imagesBldgLGI: 1,
+      imagesOccLGI: 1,
+      imagesBldgArchI: 1,
+      imagesOccArchI: 1,
+      imagesBldgStructI: 1,
+      imagesOccStructI: 1,
+      imagesBldgPlumI: 1,
+      imagesOccPlumI: 1,
+      imagesBldgElecI: 1,
+      imagesOccElecI: 1,
+      imagesBldgMechI: 1,
+      imagesOccMechI: 1
     }
   },
   computed: {},
@@ -2536,7 +2590,29 @@ export default {
       }
     },
     async gotoCamera (storage) {
-      const camera = await document.getElementById('camera')
+      let camera = null
+      if (storage === 'BldgLG') {
+        camera = await document.getElementById('cameraBldgLG')
+      } else if (storage === 'OccLG') {
+        camera = await document.getElementById('cameraOccLG')
+      } else if (storage === 'BldgArch') {
+        camera = await document.getElementById('cameraBldgArch')
+      } else if (storage === 'OccArch') {
+        camera = await document.getElementById('cameraOccArch')
+      } else if (storage === 'BldgStruct') {
+        camera = await document.getElementById('cameraBldgStruct')
+      } else if (storage === 'OccStruct') {
+        camera = await document.getElementById('cameraOccStruct')
+      } else if (storage === 'BldgElec') {
+        camera = await document.getElementById('cameraBldgElec')
+      } else if (storage === 'OccElec') {
+        camera = await document.getElementById('cameraOccElec')
+      } else if (storage === 'BldgMech') {
+        camera = await document.getElementById('cameraBldgMech')
+      } else if (storage === 'OccMech') {
+        camera = await document.getElementById('cameraOccMech')
+      }
+
       camera.click()
       camera.addEventListener('change', (e) => {
         const iFile = e.target.files[0]
@@ -2544,7 +2620,7 @@ export default {
 
         reader.readAsDataURL(iFile)
 
-        reader.onload = (e) => {
+        reader.onload = () => {
           const result = reader.result
           this.saveImages(result, storage)
         }
@@ -6676,6 +6752,7 @@ export default {
           if (progressflow.includes('LINE AND GRADE')) {
             this.savedbldgLG = 2
             this.savedbldgLGMsg = response.data
+            return this.saveImagesDatabase('BldgLG')
           } else if (progressflow.includes('ARCHI')) {
             this.savedbldgArch = 2
             this.savedbldgArchMsg = response.data
@@ -6764,9 +6841,11 @@ export default {
           if (progressflow.includes('LINE AND GRADE')) {
             this.savedbldgLG = 2
             this.savedbldgLGMsg = response.data
+            this.saveImagesDatabase('BldgLG')
           } else if (progressflow.includes('ARCHI')) {
             this.savedbldgArch = 2
             this.savedbldgArchMsg = response.data
+            this.saveImagesDatabase('BldgArch')
           } else if (progressflow.includes('STRUCTURAL')) {
             this.savedbldgStruct = 2
             this.savedbldgStructMsg = response.data
@@ -7477,50 +7556,95 @@ export default {
         })
     },
     async saveImages (image, storage) {
-      this.images.push(image)
+      // this.images.push(image)
       if (storage === 'BldgLG') {
-        this.imagesBldgLG = [...new Set(this.images)]
+        this.imagesBldgLG.push(image)
+        this.imagesBldgLGU = [...new Set(this.imagesBldgLG)]
       } else if (storage === 'OccLG') {
-        this.imagesOccLG = [...new Set(this.images)]
+        this.imagesOccLG.push(image)
+        this.imagesOccLGU = [...new Set(this.imagesOccLG)]
       } else if (storage === 'BldgArch') {
-        this.imagesBldgArch = [...new Set(this.images)]
+        this.imagesBldgArch.push(image)
+        this.imagesBldgArchU = [...new Set(this.imagesBldgArch)]
       } else if (storage === 'OccArch') {
-        this.imagesOccArch = [...new Set(this.images)]
-      } else if (storage === 'OccArch') {
-        this.imagesOccArch = [...new Set(this.images)]
+        this.imagesOccArch.push(image)
+        this.imagesOccArchU = [...new Set(this.imagesOccArch)]
+      } else if (storage === 'BldgStruct') {
+        this.imagesBldgStruct.push(image)
+        this.imagesBldgStructU = [...new Set(this.imagesBldgStruct)]
+      } else if (storage === 'OccStruct') {
+        this.imagesOccStruct.push(image)
+        this.imagesOccStructU = [...new Set(this.imagesOccStruct)]
+      } else if (storage === 'BldgPlum') {
+        this.imagesBldgPlum.push(image)
+        this.imagesBldgPlumU = [...new Set(this.imagesBldgPlum)]
+      } else if (storage === 'OccPlum') {
+        this.imagesOccPlum.push(image)
+        this.imagesOccPlumU = [...new Set(this.imagesOccPlum)]
+      } else if (storage === 'BldgElec') {
+        this.imagesBldgElec.push(image)
+        this.imagesBldgElecU = [...new Set(this.imagesBldgElec)]
+      } else if (storage === 'OccElec') {
+        this.imagesOccElec.push(image)
+        this.imagesOccElecU = [...new Set(this.imagesOccElec)]
+      } else if (storage === 'BldgMech') {
+        this.imagesBldgMech.push(image)
+        this.imagesBldgMechU = [...new Set(this.imagesBldgMech)]
+      } else if (storage === 'OccMech') {
+        this.imagesOccMech.push(image)
+        this.imagesOccMechU = [...new Set(this.imagesOccMech)]
       }
       // this.imagesUnique = [...new Set(this.images)]
     },
-    async combineImages () {
-      // console.log(this.imagesUnique)
+    async saveImagesDatabase (storage) {
+      let division = null
+      let progressflow = null
 
-      // for (let i = 0; i < this.imagesUnique.length; i++) {
-      //   const base64 = await Base64.encode(this.imagesUnique[i])
-      //   // if (this.$q.sessionStorage.has('__' + l3s.Encrypt('images' + i) + '_token')) {
-      //   //   this.$q.sessionStorage.remove('__' + l3s.Encrypt('images' + i) + '_token')
-      //   // }
-      //   // this.$q.sessionStorage.set('__' + l3s.Encrypt('images' + i) + '_token', base64)
-      //   // console.log(base64)
-      //   // console.log('images' + i)
-      // // console.log('images ', i, ': ', zipped)
-      // // const file = new File(this.imagesUnique, '1.jpg')
-      // // console.log(file)
-      // // saveAs(file, { type: 'image.jpeg' }, '../assets/uploads')
-      // }
-      // this.imageState = base64
-    },
-    async openImages () {
-      // const moveFile = require('move-file')
-      // console.log(camera)
-      // /* console.log(this.imagesUnique) */
-      // const reader = new FileReader()
-      // reader.addEventListener('load', (event) => {
-      //   img.src = event.target.result
-      // })
-      // reader.readAsDataURL(camera)
-      // moveFile(camera, '../assets/uploads/sample.jpg')
-      await this.combineImages()
-      this.$router.push('/images', () => {})
+      if (storage === 'BldgLG') {
+        division = 1
+        progressflow = 'LINE AND GRADE'
+
+        for (let i = 0; i < this.imagesBldgLGU; i++) {
+          await this.$axios.post('/api/SaveImage', {
+            ref_division: division,
+            ref_progressflow: progressflow,
+            image: this.imagesBldgLGU[i]
+          })
+        }
+      } else if (storage === 'OccLG') {
+        division = 2
+        progressflow = 'LINE AND GRADE'
+      } else if (storage === 'BldgArch') {
+        division = 1
+        progressflow = 'ARCHITECTURAL'
+      } else if (storage === 'OccArch') {
+        division = 2
+        progressflow = 'ARCHITECTURAL'
+      } else if (storage === 'BldgStruct') {
+        division = 1
+        progressflow = 'STRUCTURAL'
+      } else if (storage === 'OccStruct') {
+        division = 2
+        progressflow = 'STRUCTURAL'
+      } else if (storage === 'BldgPlum') {
+        division = 1
+        progressflow = 'SANITARY PLUMBING'
+      } else if (storage === 'OccPlum') {
+        division = 2
+        progressflow = 'SANITARY PLUMBING'
+      } else if (storage === 'BldgElec') {
+        division = 1
+        progressflow = 'ELECTRICAL'
+      } else if (storage === 'OccElec') {
+        division = 2
+        progressflow = 'ELECTRICAL'
+      } else if (storage === 'BldgMech') {
+        division = 1
+        progressflow = 'MECHANICAL'
+      } else if (storage === 'OccMech') {
+        division = 2
+        progressflow = 'MECHANICAL'
+      }
     },
     sample () {
       this.$router.push('/images', () => {})
