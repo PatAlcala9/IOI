@@ -1883,7 +1883,7 @@
 
       <div v-if="imagesElec.length > 0">
         <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesElecI">
-          <q-carousel-slide v-for="i in imagesElecU" :key="i" :name="i" :img-src="i"/>
+          <q-carousel-slide v-for="i in imagesElecU" :key="i" :name="i" :img-src="i" firstSlide/>
         </q-carousel>
       </div>
 
@@ -1956,7 +1956,7 @@
             <q-space />
             <q-btn flat dense color="secondary" :disable="loading" label="Add row" @click="addzoning = true" />
             <q-btn class="on-right mobilemode" flat dense color="red" :disable="loading" label="Clear All" @click="clearallzoning" />
-            <q-btn class="on-right mobilemode" color="secondary" :disable="loading" label="Save"/> <!-- @click="saveZoning" -->
+            <q-btn class="on-right mobilemode" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(zoningdata, 'ZONING')"/> <!-- @click="saveZoning" -->
           </template>
 
           <template v-slot:body="props">
@@ -2002,7 +2002,7 @@
             <q-space />
             <q-btn flat dense color="secondary" :disable="loading" label="Add row" @click="addbfp = true" />
             <q-btn class="on-right mobilemode" flat dense color="red" :disable="loading" label="Clear All" @click="clearallbfp" />
-            <q-btn class="on-right mobilemode" color="secondary" :disable="loading" label="Save"/> <!-- @click="saveBFP" -->
+            <q-btn class="on-right mobilemode" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bfpdata, 'BFP')"/>
           </template>
 
           <template v-slot:body="props">
@@ -2399,6 +2399,7 @@
     <!-- <div class="saveArea" v-if="appid > 0">
       <q-btn unelevated class="savebutton" color="primary" icon="check" label="Save" @click="saveData" />
     </div> -->
+
 <!-- //v-model="maps"  -->
     <q-dialog v-model="map" :maximized="maximizedToggle" transition-show="slide-up" transition-hide="slide-down" style="opactity: 0.5">
       <q-card class="bg-primary text-white" style="opacity: 0.9">
@@ -6103,17 +6104,17 @@ export default {
     },
     async saveSignage2 () {
       if (this.signdata.length > 0) {
-        if (this.selectedType.includes('Please')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
-            width: '75%'
-          })
-          this.savedType = null
-          return
-        } else {
-          this.savedType = this.selectedType
-        }
+        // if (this.selectedType.includes('Please')) {
+        //   Swal.fire({
+        //     icon: 'error',
+        //     title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
+        //     width: '75%'
+        //   })
+        //   this.savedType = null
+        //   return
+        // } else {
+        //   this.savedType = this.selectedType
+        // }
 
         this.$q.loading.show({
           message: 'SAVING DATA FOR SIGNAGE'
@@ -6126,7 +6127,6 @@ export default {
         const day = currentDate.getDate()
         const year = currentDate.getFullYear()
         const fulltime = hour + ':' + minutes
-        // let fulldate = month + '/' + day + '/' + year
         const fulldate = year + '-' + month + '-' + day
         const empid = l3s.DecryptNetwork(this.$q.localStorage.getItem('__' + l3s.Encrypt('id') + '_token'))
 
@@ -6161,33 +6161,24 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              /* const data = JSON.stringify({
-                signageid: this.appid,
-                txndate: year + '-' + month + '-' + day + ' 00:00:00',
-                remarks: whereabouts,
-                is_tag: isTag,
-                tagword: 'SIGNINSPECTED',
-                is_approve: 1,
-                employeeid: this.empid
-              }) */
               return this.$axios.post('/api/UpdateDocflowSign', {
                 signageid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' 00:00:00',
                 remarks: whereabouts,
                 is_tag: isTag,
                 tagword: 'SIGNINSPECTED',
-                is_approve: 1,
+                is_approve: 0,
                 employeeid: this.empid
               })
             })
             .then(() => {
-              /* const data = JSON.stringify({
-                typeofconstruction: this.selectedType
-              }) */
-              return this.$axios.put('/api/UpdateSignage/' + this.appid, {
-                typeofconstruction: this.selectedType
-              })
+              return this.$axios.put('/api/SetDocflowSign/' + this.appid)
             })
+            // .then(() => {
+            //   return this.$axios.put('/api/UpdateSignage/' + this.appid, {
+            //     typeofconstruction: this.selectedType
+            //   })
+            // })
         }
       } else {
         Swal.fire({
@@ -6380,17 +6371,17 @@ export default {
     },
     async saveElectrical2 () {
       if (this.elecdata.length > 0) {
-        if (this.selectedType.includes('Please')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
-            width: '75%'
-          })
-          this.savedType = null
-          return
-        } else {
-          this.savedType = this.selectedType
-        }
+        // if (this.selectedType.includes('Please')) {
+        //   Swal.fire({
+        //     icon: 'error',
+        //     title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
+        //     width: '75%'
+        //   })
+        //   this.savedType = null
+        //   return
+        // } else {
+        //   this.savedType = this.selectedType
+        // }
 
         this.$q.loading.show({
           message: 'SAVING DATA FOR ELECTRICAL'
@@ -6443,16 +6434,6 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              /* const data = JSON.stringify({
-                electricalid: this.appid,
-                txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
-                remarks: whereabouts,
-                is_tag: isTag,
-                tagword: 'ELECINSPECTED',
-                is_approve: 0,
-                employeeid: this.empid,
-                is_delete: 0
-              }) */
               return this.$axios.post('/api/UpdateDocflowElec', {
                 electricalid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' 00:00:00', // '2013-05-30 00:00:00',
@@ -6465,13 +6446,13 @@ export default {
               })
             })
             .then(() => {
-              /* const data = JSON.stringify({
-                typeofconstruction: this.selectedType
-              }) */
-              return this.$axios.put('/api/UpdateElectrical/' + this.appid, {
-                typeofconstruction: this.selectedType
-              })
+              return this.$axios.put('/api/SetDocflowElec/' + this.appid)
             })
+            // .then(() => {
+            //   return this.$axios.put('/api/UpdateElectrical/' + this.appid, {
+            //     typeofconstruction: this.selectedType
+            //   })
+            // })
         }
       } else {
         Swal.fire({
