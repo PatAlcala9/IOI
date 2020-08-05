@@ -6654,17 +6654,17 @@ export default {
     },
     async saveMechanical2 () {
       if (this.mechdata.length > 0) {
-        if (this.selectedType.includes('Please')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
-            width: '75%'
-          })
-          this.savedType = null
-          return
-        } else {
-          this.savedType = this.selectedType
-        }
+        // if (this.selectedType.includes('Please')) {
+        //   Swal.fire({
+        //     icon: 'error',
+        //     title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
+        //     width: '75%'
+        //   })
+        //   this.savedType = null
+        //   return
+        // } else {
+        //   this.savedType = this.selectedType
+        // }
 
         this.$q.loading.show({
           message: 'SAVING DATA FOR MECHANICAL'
@@ -6716,31 +6716,23 @@ export default {
               const whereabouts = response.data[0].whereabouts
               const isTag = response.data[0].tagcode
 
-              /* const data = JSON.stringify({
-                mechanicalid: this.appid,
-                txndate: year + '-' + month + '-' + day + ' ' + fulltime, // '2013-05-30 00:00:00',
-                remarks: whereabouts,
-                is_tag: isTag,
-                tagword: 'ELECINSPECTED',
-                employeeid: this.empid
-              }) */
               return this.$axios.post('/api/UpdateDocflowMech', {
                 mechanicalid: this.appid,
                 txndate: year + '-' + month + '-' + day + ' ' + fulltime, // '2013-05-30 00:00:00',
                 remarks: whereabouts,
                 is_tag: isTag,
-                tagword: 'ELECINSPECTED',
+                tagword: 'MECHINSPECTED',
                 employeeid: this.empid
               })
             })
             .then(() => {
-              /* const data = JSON.stringify({
-                typeofconstruction: this.selectedType
-              }) */
-              return this.$axios.put('/api/UpdateMechanical/' + this.appid, {
-                typeofconstruction: this.selectedType
-              })
+              return this.$axios.put('/api/SetDocflowMech/' + this.appid)
             })
+            // .then(() => {
+            //   return this.$axios.put('/api/UpdateMechanical/' + this.appid, {
+            //     typeofconstruction: this.selectedType
+            //   })
+            // })
         }
       } else {
         Swal.fire({
