@@ -131,6 +131,12 @@
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldglgdata, 'LINE AND GRADE')" />
         <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgLG')"/>
 
+      <div v-if="imagesBldgLGU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgLGI">
+          <q-carousel-slide v-for="i in imagesBldgLGU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
+
         <q-dialog v-model="deleterowblg" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
             <q-card-section>
@@ -168,7 +174,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occlgdata, 'LINE AND GRADE')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccLG')"/>
+
+      <div v-if="imagesOccLGU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccLGI">
+          <q-carousel-slide v-for="image in imagesOccLGU" :key="image" :name="image" :img-src="image"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowolg" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -207,7 +219,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgarchdata, 'ARCHITECTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgArch')"/>
+
+      <div v-if="imagesBldgArchU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgArchI">
+          <q-carousel-slide v-for="i in imagesBldgArchU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbar" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -246,7 +264,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occarchdata, 'ARCHITECTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccArch')"/>
+
+      <div v-if="imagesOccArchU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccArchI">
+          <q-carousel-slide v-for="i in imagesOccArchU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowoar" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -285,7 +309,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgstructdata, 'STRUCTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgStruct')"/>
+
+      <div v-if="imagesBldgStructU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgStructI">
+          <q-carousel-slide v-for="i in imagesBldgStructU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbst" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -324,7 +354,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occstructdata, 'STRUCTURAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccStruct')"/>
+
+      <div v-if="imagesOccStructU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccStructI">
+          <q-carousel-slide v-for="i in imagesOccStructU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowost" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -363,7 +399,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgplumdata, 'SANITARY/PLUMBING')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgPlum')"/>
+
+      <div v-if="imagesBldgPlumU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgPlumI">
+          <q-carousel-slide v-for="i in imagesBldgPlumU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbpl" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -402,7 +444,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occplumdata, 'SANITARY/PLUMBING')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccPlum')"/>
+
+      <div v-if="imagesOccPlumU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccPlumI">
+          <q-carousel-slide v-for="i in imagesOccPlumU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowopl" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -441,7 +489,13 @@
           </template>
         </q-table>
         <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgelecdata, 'ELECTRICAL')" />
-        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+        <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgElec')"/>
+
+      <div v-if="imagesBldgElecU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgElecI">
+          <q-carousel-slide v-for="i in imagesBldgElecU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
         <q-dialog v-model="deleterowbel" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -480,7 +534,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occelecdata, 'ELECTRICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccElec')"/>
+
+      <div v-if="imagesOccElecU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccElecI">
+          <q-carousel-slide v-for="i in imagesOccElecU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowoel" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -519,7 +579,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveBuilding2(bldgmechdata, 'MECHANICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BldgMech')"/>
+
+      <div v-if="imagesBldgMechU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBldgMechI">
+          <q-carousel-slide v-for="i in imagesBldgMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowbme" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -558,7 +624,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveOccupancy2(occmechdata, 'MECHANICAL')" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('OccMech')"/>
+
+      <div v-if="imagesOccMechU.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesOccMechI">
+          <q-carousel-slide v-for="i in imagesOccMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowome" persistent transition-show="scale" transition-hide="scale">
           <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -597,7 +669,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveSignage2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Signage')"/>
+
+      <div v-if="imagesSign.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesSignI">
+          <q-carousel-slide v-for="i in imagesSignU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowsig" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -636,7 +714,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveElectrical2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Electrical')"/>
+
+      <div v-if="imagesElec.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesElecI">
+          <q-carousel-slide v-for="i in imagesElecU" :key="i" :name="i" :img-src="i" firstSlide/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowele" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -675,7 +759,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" @click="saveMechanical2" />
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Mechanical')"/>
+
+      <div v-if="imagesMech.length > 0">
+        <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesMechI">
+          <q-carousel-slide v-for="i in imagesMechU" :key="i" :name="i" :img-src="i"/>
+        </q-carousel>
+      </div>
 
       <q-dialog v-model="deleterowmec" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -714,7 +804,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" /> <!-- @click="saveZoning" -->
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('Zoning')"/>
+
+       <div v-if="imagesZoning.length > 0">
+         <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesZoningI">
+           <q-carousel-slide v-for="i in imagesZoningU" :key="i" :name="i" :img-src="i"/>
+         </q-carousel>
+       </div>
 
       <q-dialog v-model="deleterowzon" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
@@ -753,7 +849,13 @@
           </template>
       </q-table>
       <q-btn class="on-right mobilemode2" color="secondary" :disable="loading" label="Save" /> <!-- @click="saveBFP" -->
-      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt"/>
+      <q-btn class="on-right tab-mob" color="secondary" :disable="loading" label="Add Photo" icon="camera_alt" @click="gotoCamera('BFP')"/>
+
+       <div v-if="imagesBFP.length > 0">
+         <q-carousel swipeable arrows animated transition-next="slide-left" transition-prev="slide-right" thumbnails infinite v-model="imagesBFPI">
+           <q-carousel-slide v-for="i in imagesBFPU" :key="i" :name="i" :img-src="i"/>
+         </q-carousel>
+       </div>
 
       <q-dialog v-model="deleterowbfp" persistent transition-show="scale" transition-hide="scale">
         <q-card class="bg-blue-grey-3 text-blue-grey-10" style="width: 1200px;">
