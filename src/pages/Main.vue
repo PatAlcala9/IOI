@@ -5859,17 +5859,17 @@ export default {
     },
     async saveOccupancy2 (progressflowtable, progressflow) {
       if (progressflowtable.length > 0) {
-        if (this.selectedType.includes('Please')) {
-          Swal.fire({
-            icon: 'error',
-            title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
-            width: '75%'
-          })
-          this.savedType = null
-          return
-        } else {
-          this.savedType = this.selectedType
-        }
+        // if (this.selectedType.includes('Please')) {
+        //   // Swal.fire({
+        //   //   icon: 'error',
+        //   //   title: 'PLEASE SELECT A TYPE FOR CONSTRUCTION',
+        //   //   width: '75%'
+        //   // })
+        //   this.savedType = null
+        //   return
+        // } else {
+        this.savedType = this.selectedType
+        // }
 
         this.$q.loading.show({
           message: 'SAVING DATA FOR OCCUPANCY ' + progressflow
@@ -6001,11 +6001,11 @@ export default {
                 employeeid: this.empid
               })
             })
-            .then(() => {
-              return this.$axios.put('/api/UpdateOccupancy/' + this.appid, {
-                typeofconstruction: this.selectedType
-              })
-            })
+            // .then(() => {
+            //   return this.$axios.put('/api/UpdateOccupancy/' + this.appid, {
+            //     typeofconstruction: this.selectedType
+            //   })
+            // })
         }
       } else {
         Swal.fire({
@@ -7806,11 +7806,15 @@ export default {
 
         for (let i = 0; i < this.imagesBldgLGU.length; i++) {
           await this.$axios.post('/api/SaveImage', {
+            applicationNo: this.appno,
             ref_division: division,
             ref_progressflow: progressflow,
             image: this.imagesBldgLGU[i]
           })
         }
+        // for (let i = 0; i < this.imagesBldgLGU.length; i++) {
+        //   console.log('image', i, ': ', this.imagesBldgLGU[i])
+        // }
       } else if (storage === 'OccLG') {
         division = 2
         progressflow = 'LINE AND GRADE'

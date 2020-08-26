@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.5.1",
-    "@quasar/extras": "^1.9.2",
+    "@quasar/extras": "^1.9.4",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "cryptr": "^4.0.2",
@@ -23,12 +23,12 @@
     "js-base64": "^3.3.3",
     "mapbox-gl": "^1.11.0",
     "md5": "^2.2.1",
-    "quasar": "^1.12.13",
+    "quasar": "^1.13.1",
     "sweetalert2": "^9.15.2",
     "zipson": "^0.2.11"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.6",
+    "@quasar/app": "^2.0.8",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
